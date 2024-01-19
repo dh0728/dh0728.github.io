@@ -1,0 +1,84 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #eee;
+}
+#container h2{
+  padding-top: 15px;
+
+}
+#id_info{
+  padding-top: 20px;
+}
+#email_info{
+  padding-top: 20px;
+}
+
+li{
+  list-style: none;
+}
+#container {
+    
+      background-color: white;
+      width: 450px;
+      margin: 100px auto;
+      padding: 20px;
+      border: 1px solid #000;
+      border-radius: 20px;
+}
+#id_info fieldset{
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+#email_info fieldset{
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+#container legend{
+  font-weight: bold;
+  padding-left: 5px;
+  padding-bottom: 10px;
+}
+#container ul li{
+  line-height: 35px;
+  padding: 5px 10px;
+  margin-bottom: 2px;
+
+}
+#id_info label{
+  float: left;
+  font-size: 13px;
+  width: 110px;
+}
+#email_info label{
+  padding: 7px 10px;
+  margin: auto;
+
+}
+
+
+#join_submit fieldset{
+  border: none;
+  margin-bottom: 20px;
+}
+#join_submit button{
+  border: 1px solid ;
+  font-weight: bold;
+  border-radius: 16px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin: auto;
+  padding: 3px 20px;
+}
+#join_submit button a:link{
+  text-decoration: none;
+}
+#join_submit button a:hover{
+  background-color: black;
+}
+#container input[required]{
+  border: 1px solid red;
+}

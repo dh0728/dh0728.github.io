@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/jeju.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1>제주도(Jeju island)</h1>
+  <img id="circle" src="images/jeju1.webp" width="50%">
+  <p>제주도(濟州島, 영어: Jeju Island)는 대한민국의 남해에 위치한 섬이자 대한민국에서 가장 큰 섬이다. 또한 제주도는 행정구역상 제주특별자치도에 속한다. 
+  <br>섬의 면적은 1,846km²인데 이는 남한 면적의 1.83%에 해당한다. 2020년 기준 주민등록 인구는 약 67만 명으로 대한민국의 섬 중에서 가장 인구가 많다.</p>
+  <h2>하이킹 트레일</h2>
+  <div id="wrapper">
+    <div class="card">
+      <header>
+        <h4>제주 올레길</h4>
+      </header>
+      <figure>
+        <img width="300" height="200" src="images/jeju2.png">
+      </figure>
+      <p>올레길은 제주도의 트레일이다. 올레란 제주 방언으로 좁은 골목이란 뜻이며, 통상 큰길에서 집의 대문까지 이어지는 좁은 길을 말한다.</p>
+    </div>
+    <div class="card">
+      <header>
+        <h4>영실</h4>
+      </header>
+      <figure>
+        <img width="300" height="200" src="images/jeju3.jpeg">
+      </figure>
+      <p>영실 등산로는 길이 5.8km, 2시간 30분이 소요되는 코스로, 한라산 코스 중 가장 짧으면서도 가장 아름다운 구간으로 꼽힌다.</p>
+    </div>
+    <div class="card">
+      <header>
+        <h4>성널오름</h4>
+      </header>
+      <figure>
+        <img width="300" height="200" src="images/jeju4.jpg">
+      </figure>
+      <p>오름 중턱에 널빤지 모양의 암벽이 둘러져 있는 모습이. 마치 성벽처럼 보인다 하여 성널오름</p>
+    </div>
+    <div class="card">
+      <header>
+        <h4>정물오름</h4>
+      </header>
+      <figure>
+        <img width="300" height="200" src="images/jeju5.jpg">
+      </figure>
+      <p>한림읍 금악리에 있는 기생 화산으로 해발 466m의 오름.</p>
+    </div>
+  </div>
+  <h2>관광지</h2>
+  <div id="wrapper">
+    <div class="card">
+      <header>
+        <h4>성산 일출봉</h4>
+      </header>
+      <figure>
+        <img width="300" height="200" src="images/jeju6.jpg">
+      </figure>
+      <p>마그마가 물속에서 분출하면서 만들어진 수성화산체. 거대한 성과 같다고 해서 '성산(城山)', 해가 뜨는 모습이 장관이라 하여 '일출봉(日出峰)'이라는 이름이 붙었다.</p>
+    </div>
+    <div class="card">
+      <header>
+        <h4>한라산 국립공원</h4>
+      </header>
+      <figure>
+        <img width="300" height="200" src="images/jeju7.jpg">
+      </figure>
+      <p>지리산, 북한의 금강산과 함께 한반도의 3대 영산에 속하는 한라산은 한반도의 최남단에 위치하고 있으며, 높이 해발 1,950m로 남한에서 가장 높다.</p>
+    </div>
+    <div class="card">
+      <header>
+        <h4>만장굴</h4>
+      </header>
+      <figure>
+        <img width="300" height="200" src="images/jeju8.jpg">
+      </figure>
+      <p>총 길이가 약 7.4km, 부분적으로 다층구조를 지니는 용암동굴</p>
+    </div>
+    <div class="card">
+      <header>
+        <h4>제주 정방폭포</h4>
+      </header>
+      <figure>
+        <img width="300" height="200" src="images/jeju9.jpeg">
+      </figure>
+      <p>제주3대 폭포 중 하나로 국내에선 유일한 뭍에서 바다로 직접 떨어지는 폭포</p>
+    </div>
+  </div>
+  <h2>제주도에 대해 자주 묻는 질문</h2>
+  <div class="faq-container">
+    <div class="question" onclick="toggleAnswer('q1')">제주도에서 방문해야 할 인기 관광명소는?</div>
+    <dl class="answer" id="q1">
+      <dd>우도</dd>
+      <dd>성산일출봉</dd>
+      <dd>제주 올레길</dd>
+      <dd>만장굴</dd>
+    </dl>
+    <div class="question" onclick="toggleAnswer('q2')">제주도에서 최고의 야외 활동은?</div>
+    <dl class="answer" id="q2">
+      <dd>성산 일출봉</dd>
+      <dd>한라산 국립공원</dd>
+      <dd>용머리 해안</dd>
+      <dd>정방폭포</dd>
+    </dl>
+  <script>
+    function toggleAnswer(id) {
+      var answer = document.getElementById(id);
+      if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+      } else {
+        answer.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

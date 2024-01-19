@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/login.css">
+  <title>로그인</title>
+</head>
+<body>
+  <form id="login">
+    <fieldset>
+      <legend>로그인</legend>
+      <ul>
+        <li>
+          <label for="userid" >아이디</label>
+          <input type="text" name="userid" id="userid" required>
+        </li>
+        <li>
+          <label for="password">비밀번호</label>
+          <input type="password" name="password" id="password" required>
+        </li>
+      </ul>
+    </fieldset>
+
+    <div id="idsave">
+      <input type="checkbox" name="saveid" id="saveid"><lable for="saveid">아이디 저장</lable>
+    </div>
+    <button type="button" value="로그인"><a href="../main.html">로그인</a></button>
+    
+  </form>
+</body>
+</html>
