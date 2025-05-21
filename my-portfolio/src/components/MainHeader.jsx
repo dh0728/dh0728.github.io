@@ -6,7 +6,7 @@ const MainHeader = ({ onMoveToSection }) => {
     // const navigate = useNavigate();
 
     return(
-        <div className="w-full h-[12%] flex items-center px-2">
+        <div className="fixed top-0 left-0 w-full h-[12%] flex items-center px-2 bg-white/50 z-10">
 
             {/*  logo */}
             <img 

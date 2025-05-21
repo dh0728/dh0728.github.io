@@ -13,7 +13,10 @@ const AboutMe = () => {
     const tmi = ["#백엔드", "#웹개발자", "#파이썬 좋아", "#자바도 좋아" ,"#열정맨", "#중꺽그마" ,"#ISFP", "#축구가 취미", "#코딩이 취미", "#운동 좋아"]
     
     return(
-        <div className="w-full h-full mt-8 flex gap-8">
+        <div className="relative w-full h-[65%] flex gap-8">
+            <h1 className="absolute w-auto h-auto -top-7 -left-2 inset-0 flex text-[8rem] font-extrabold text-white  select-none pointer-events-none leading-none z-10">
+              Profile
+            </h1>
             <img 
                 src={profileImg} 
                 alt="내 이미지" 

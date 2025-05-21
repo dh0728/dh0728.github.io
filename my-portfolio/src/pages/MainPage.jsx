@@ -2,41 +2,94 @@ import MainHeader from "../components/MainHeader";
 import Skill from "../components/Skill";
 import AboutMe from "../components/AboutMe";
 import Career from "../components/career";
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import Footer from "../components/Footer";
 
 const MainPage = () => {
 
-    const aboutRef = useRef(null);
-    const careerRef = useRef(null);
-    const skillRef = useRef(null);
+
+    const sections = ["about", "career", "skill"]
+    const sectionRefs = {
+        about: useRef(null),
+        career: useRef(null),
+        skill: useRef(null),
+    };
+
+    // 현재 색션
+    const [activeSection, setActiveSection] = useState("about");
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visibleEntry = entries.find(entry => entry.isIntersecting);
+                if (visibleEntry) {
+                    setActiveSection(visibleEntry.target.id);
+                }
+            },
+            {
+                threshold: 0.5, // 50% 보이면 활성화하기
+                rootMargin: "0px 0px -30% 0px", // 아래 여유 공간 확보
+            } 
+        );
+
+        sections.forEach((id) => {
+            const el = sectionRefs[id].current;
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, [])
+
     
     return(
-        <div className="w-full h-screen">
+        <div className="w-full h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
             <MainHeader
                 onMoveToSection={(section) => {
-                    if (section === 'about') aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
-                    if (section === 'career') careerRef.current?.scrollIntoView({ behavior: 'smooth' });
-                    if (section === 'skill') skillRef.current?.scrollIntoView({ behavior: 'smooth' });
-            }}
+                    sectionRefs[section]?.current?.scrollIntoView({ behavior: 'smooth' });
+                }}
             />
-            
+
+            {/* 현재 페이지 표시해주는 점 */}
+            <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+                {sections.map((sec) => (
+                    <button
+                        key={sec}
+                        onClick={() => sectionRefs[sec].current?.scrollIntoView({ behavior: "smooth" })}
+                        className={`w-2 h-2 rounded-full transition-all duration-300
+                            ${activeSection === sec ? "bg-black scale-150" : "bg-black opacity-50"}
+                        `}
+                    />
+              ))}
+            </div>
+
             {/* 내소개 */}
-            <div ref={aboutRef} className="w-full h-[70%]" id="aboutMe">
+            <div ref={sectionRefs.about} 
+                className="relative overflow-hidden w-full h-screen snap-start flex items-center" id="about">
                 <AboutMe/>
             </div>
 
             
-            <div ref={careerRef} className="w-full h-auto flex flex-col justify-center items-center mt-32" id="career">
-                <div className="w-[90%] text-4xl font-bold mb-4 ml-10">
-                    주요이력
+            <div ref={sectionRefs.career} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center " id="career">
+                <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
+                    ${activeSection === "career" ? "animate-slide-in-left" : "opacity-0"}
+                `}>
+                    CAREER
+                </h1>
+                <div className="w-[90%] text-4xl font-bold  mt-20 ml-48">
+                    CAREER
                 </div>
                 <Career/>
             </div>
         
             {/* 스킬 */}
-            <div ref={skillRef} className="w-full h-auto flex flex-col justify-center items-center mt-32" id="skiil">
-                <div className="w-[90%] text-4xl font-bold mb-4 ml-10">
-                    스킬
+            <div ref={sectionRefs.skill} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="skill">
+                <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
+                    ${activeSection === "skill" ? "animate-slide-in-left" : "opacity-0"}
+                `}>
+                    SKILL
+                </h1>
+                <div className="w-[90%] text-4xl font-bold mt-4 mb-12 ml-48 ">
+                    SKILL
                 </div>
                 <Skill/>
             </div>

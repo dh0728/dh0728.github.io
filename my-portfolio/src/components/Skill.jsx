@@ -46,7 +46,7 @@ const Skill = () => {
 
     const frontendTools = [
       { name: 'React', icon: React },
-      { name: 'Tailwind CSS', icon: Tailwind },
+      { name: 'Tailwind', icon: Tailwind },
       { name: 'HTML5', icon: HTML5 },
       { name: 'CSS3', icon: CSS3 },
       { name: 'Vue.js', icon: Vue },
@@ -71,23 +71,29 @@ const Skill = () => {
     
 
     return (
-        <div className="w-[90%] h-auto flex flex-wrap justify-center gap-8 items-start">
-            {skills.map((items, i) => (
-                <div key={i} className="w-[18%] h-auto border-2 rounded-3xl py-8 shadow-xl">
-                    <div className="text-2xl font-bold mb-6 text-center">{items.title}</div>
-                    <div className="flex flex-col flex-wrap gap-8 justify-center items-center">
-                        {items.list.map((tool, j) => (
-                            <div key={j} className="flex flex-col items-center">
-                                <img src={tool.icon} alt={tool.name} className="w-12 h-12 object-contain" />
-                                <div className="text-sm mt-1 font-semibold">{tool.name}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            ))}
-        </div>
+      <div className="w-[90%] h-[55%] flex flex-wrap justify-center gap-8 items-start">
+        {skills.map((items, i) => (
+          <div key={i} className="w-[18%] min-w-[180px] border-2 rounded-3xl py-8 shadow-xl">
+            <div className="text-2xl font-bold mb-6 text-center">{items.title}</div>
 
-    ) 
+            {/* 도구 아이콘들 */}
+            <div
+              className={`grid ${
+                items.list.length > 2 ? "grid-cols-2" : "grid-cols-1"
+              } gap-6 place-items-center p-8`}
+            >
+              {items.list.map((tool, j) => (
+                <div key={j} className="flex flex-col items-center">
+                  <img src={tool.icon} alt={tool.name} className="w-8 h-8 object-contain" />
+                  <div className="text-sm mt-1 font-semibold">{tool.name}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+
 }
 
 export default Skill;

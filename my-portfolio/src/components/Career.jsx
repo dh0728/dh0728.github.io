@@ -25,20 +25,21 @@ const Career = () => {
         { date: "2023.12" , title: "OPIC" , content: "Intermediate Mid"},
     ]
 
-    const pjt = [
-        { content : "코딩 기반 실전 타자 게임 플랫폼 [코드노바]", date : "2025.04 ~ 2025.05", role : "FE"},
-        { content : "친환경 크라우드 펀딩 플랫픔 [에코펀디아]", date : "2025.02 ~ 2025.04", role : "BE"},
-        { content : "클라이밍을 취미로 즐길 수 있는 앱 [끌락끌락]", date : "2025.02 ~ 2025.04", role : "BE"},
-        { content : "영수증 한 장으로 끝내는 금융 생활 플랫폼 [가계북]", date : "2025.02 ~ 2025.04", role : "BE"},
-    ]
+    // const pjt = [
+    //     { content : "코딩 기반 실전 타자 게임 플랫폼 [코드노바]", date : "2025.04 ~ 2025.05", role : "FE"},
+    //     { content : "친환경 크라우드 펀딩 플랫픔 [에코펀디아]", date : "2025.02 ~ 2025.04", role : "BE"},
+    //     { content : "클라이밍을 취미로 즐길 수 있는 앱 [끌락끌락]", date : "2025.02 ~ 2025.04", role : "BE"},
+    //     { content : "영수증 한 장으로 끝내는 금융 생활 플랫폼 [가계북]", date : "2025.02 ~ 2025.04", role : "BE"},
+    // ]
 
 
 
+    // border-2 rounded-3xl p-4 gap-4 shadow-xl
     return (
-        <div className="w-[90%] h-full flex flex-wrap justify-center border-2 rounded-3xl p-4 gap-8 shadow-xl">
+        <div className="w-[90%] h-[70%] flex flex-wrap justify-center">
             
             {/* 교육 수료 섹션 */}
-            <div className="w-[45%] h-auto  p-6 rounded-xl bg-white">
+            <div className="w-[45%] h-[50%]  p-6 rounded-xl bg-white">
               <div className="text-3xl font-bold mb-4 text-[#3BA9F2]">🎓 교육 수료</div>
 
               <div className="flex flex-col gap-4">
@@ -60,7 +61,7 @@ const Career = () => {
             </div>
 
             {/* 수상 */}
-            <div className="w-[45%] h-auto  p-6 rounded-xl bg-white">
+            <div className="w-[45%] h-[50%]  p-6 rounded-xl bg-white">
               <div className="text-3xl font-bold mb-4 text-[#3BA9F2]"> 🏆 수상 </div>
 
               <div className="flex flex-col gap-4">
@@ -81,29 +82,27 @@ const Career = () => {
             </div>
 
             {/* pjt */}
-            <div className="w-[45%] h-auto  p-6 rounded-xl bg-white">
+            {/* <div className="w-[45%] h-auto  p-6 rounded-xl bg-white">
               <div className="text-3xl font-bold mb-4 text-[#3BA9F2]">📁 프로젝트 </div>
 
               <div className="flex flex-col gap-4">
                 {pjt.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-4">
-                    {/* 날짜 박스 */}
                     <div className="w-[35%] min-w-[120px] bg-[#E6F4FE] text-[#005BAC] px-3 py-1 rounded-md font-semibold text-sm text-center shadow-sm">
                       {item.date}
                     </div>
-                
-                    {/* 내용 */}
+    
                     <div className="w-[70%] text-gray-800 text-base leading-snug">
                       {item.content}
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
-            {/* 자격증 및 어학 */}
-            <div className="w-[45%] h-auto  p-6 rounded-xl bg-white ">
-              <div className="text-2xl font-bold mb-4 text-[#3BA9F2]"> 🪪 자격증 </div>
+            {/* 자격증 */}
+            <div className="w-[45%] h-[20%]  p-6 rounded-xl bg-white">
+              <div className="text-3xl font-bold mb-4 text-[#3BA9F2]"> 🪪 자격증 </div>
 
               <div className="flex flex-col gap-4">
                 {qualifications.map((item, idx) => (
@@ -120,8 +119,11 @@ const Career = () => {
                   </div>
                 ))}
               </div>
+            </div>
 
-              <div className="text-2xl font-bold mt-4 mb-4 text-[#3BA9F2]"> 🌐 어학 </div>
+            {/* 어학 */}
+            <div className="w-[45%] h-[20%]  p-6 rounded-xl bg-white">
+              <div className="text-3xl font-bold mb-4 text-[#3BA9F2]"> 🌐 어학 </div>
 
               <div className="flex flex-col gap-4">
                 {language.map((item, idx) => (
@@ -133,13 +135,12 @@ const Career = () => {
                 
                     {/* 내용 */}
                     <div className="w-[70%] text-gray-800 text-base leading-snug">
-                      {item.title} ({item.content})
+                      {item.title} {item.content}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
         </div>
     );
 }
