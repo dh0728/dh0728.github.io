@@ -4,15 +4,17 @@ import AboutMe from "../components/AboutMe";
 import Career from "../components/career";
 import { useRef, useState, useEffect } from 'react';
 import Footer from "../components/Footer";
+import ProjectList from "../components/ProjectList";
 
 const MainPage = () => {
 
 
-    const sections = ["about", "career", "skill"]
+    const sections = ["about", "career", "skill", "pjt"]
     const sectionRefs = {
         about: useRef(null),
         career: useRef(null),
         skill: useRef(null),
+        pjt: useRef(null),
     };
 
     // 현재 색션
@@ -68,7 +70,7 @@ const MainPage = () => {
                 <AboutMe/>
             </div>
 
-            
+            {/* 주요 이력력 */}
             <div ref={sectionRefs.career} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center " id="career">
                 <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
                     ${activeSection === "career" ? "animate-slide-in-left" : "opacity-0"}
@@ -92,6 +94,19 @@ const MainPage = () => {
                     SKILL
                 </div>
                 <Skill/>
+            </div>
+
+            {/* pjt */}
+            <div ref={sectionRefs.pjt} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="pjt">
+                <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
+                    ${activeSection === "pjt" ? "animate-slide-in-left" : "opacity-0"}
+                `}>
+                    PROJECT
+                </h1>
+                <div className="w-[90%] text-4xl font-bold mt-4 mb-12 ml-48 ">
+                    PROJECT
+                </div>
+                <ProjectList/>
             </div>
 
         </div>

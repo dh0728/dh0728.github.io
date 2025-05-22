@@ -39,8 +39,10 @@ const MainHeader = ({ onMoveToSection }) => {
             </div>
 
             {/* PORTFOLIO */}
-            <div className=" font-bold text-2xl cursor-pointer transition-all duration-200 hover:text-[#3BA9F2] hover:scale-105">
-                PORTFOLIO
+            <div className=" font-bold text-2xl cursor-pointer transition-all duration-200 hover:text-[#3BA9F2] hover:scale-105"
+                onClick={() => onMoveToSection('pjt')}
+            >
+                PROJECT
             </div>
             {/*  */}
 
