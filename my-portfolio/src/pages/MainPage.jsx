@@ -97,7 +97,7 @@ const MainPage = () => {
             </div>
 
             {/* pjt */}
-            <div ref={sectionRefs.pjt} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="pjt">
+            <div ref={sectionRefs.pjt} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center " id="pjt">
                 <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
                     ${activeSection === "pjt" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
