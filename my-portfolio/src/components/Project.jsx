@@ -1,5 +1,5 @@
 
-const Project = ({ idx, title, tools, myFunc, date, info }) => {
+const Project = ({ idx, img, title, tools, myFunc, date, info }) => {
 
     const toolBgColors = {
         Spring : "#6DB33F",
@@ -14,14 +14,15 @@ const Project = ({ idx, title, tools, myFunc, date, info }) => {
         Kafka : "#231F20",
         MySQL : "#4479A1",
         MongoDB : "#47A248",
-        Redis : "#FF4438"
+        Redis : "#FF4438",
+        SQLite : "#FF4438"
     }
 
     return (
         <div className="w-[400px] h-[400px] border-2 rounded-2xl inline-block">
             
             {/* 이미지 */}
-            <div className="w-full h-[50%] bg-black rounded-t-2xl"/>
+            <img src={img} alt="이미지" className="w-full h-[50%] rounded-t-2xl"/>
 
             {/* 제목 */}
             <div className="w-full h-[10%] flex items-center p-4 font-semibold">
