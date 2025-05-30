@@ -4,8 +4,11 @@ import codeNovaImg from "../assets/images/codeNova.png";
 import keullagImg from "../assets/images/keullag.png";
 import storeBookImg from "../assets/images/storeBook.png";
 import ecoFundiaImg from "../assets/images/ecoFundia.png";
+import { useNavigate } from "react-router-dom";
 
 const ProjectList = () => {
+
+    const navigate = useNavigate();
 
     const pjts = [
 
@@ -15,7 +18,8 @@ const ProjectList = () => {
             tools:["Spring", "STOMP", "Kafka", "MySQL", "MongoDB"], 
             myFunc: ["BE 개발,", "화면 랜더링 API,", "채팅,", "MSA 아키텍처 설계"],
             date: "2025.02.24 ~ 2025.04.11",
-            info: "친환경 상품 펀딩 사업을 전개 및 소비자는 관심있는 친황경 펀딩 상품을 구매할 수 있는 양방향 플랫폼 기획"
+            info: "친환경 상품 펀딩 사업을 전개 및 소비자는 관심있는 친황경 펀딩 상품을 구매할 수 있는 양방향 플랫폼 기획",
+            path: "/ecofundia"
         },
         { 
             title:"클라이밍을 취미로 즐길 수 있는 앱 [끌락끌락]", 
@@ -23,7 +27,8 @@ const ProjectList = () => {
             tools:["Spring", "JAVA", "MySQL", "Redis"], 
             myFunc: ["BE 개발,", "화면 랜더링 API," ,"DB 설계"],
             date: "2025.01.24 ~ 2025.02.11",
-            info: "자신의 클라이밍 영상을 모션 인식을 통한 기록 손을 쓰지 않고 촬영하고 기록을 자동 저장하는 플랫폼 기획"
+            info: "자신의 클라이밍 영상을 모션 인식을 통한 기록 손을 쓰지 않고 촬영하고 기록을 자동 저장하는 플랫폼 기획",
+            path: "/keullag"
         },
         { 
             title:"코딩 실력을 키우는 실전 타자 플랫폼 [코드노바]", 
@@ -31,7 +36,8 @@ const ProjectList = () => {
             tools:["React", "JS", "tailwind"], 
             myFunc: ["FE 개발,", "싱글모드," ,"메크로 감지"],
             date: "2025.04.14 ~ 2025.05.22",
-            info: "개발자를 꿈꾸는 사람들이 자연스럽게 몰입하고 성장할 수 있는 실전형 코딩 감각 훈련 플랫폼"
+            info: "개발자를 꿈꾸는 사람들이 자연스럽게 몰입하고 성장할 수 있는 실전형 코딩 감각 훈련 플랫폼",
+            path: "/codenova"
         },
         { 
             title:"영수증 한 장으로 끝내는 금융 생활 [가계북]", 
@@ -39,7 +45,8 @@ const ProjectList = () => {
             tools:["Django", "Python", "LangChain", "SQLite"], 
             myFunc: ["BE 개발,", "카드추천기능,", "DB 설계,", "데이터 크롤링"],
             date: "2025.11.18 ~ 2025.04.11.27",
-            info: "소비 내역을 쉽게 입력하고 소비내역에 따른 카드를 추천받을 수 있는 플랫폼"
+            info: "소비 내역을 쉽게 입력하고 소비내역에 따른 카드를 추천받을 수 있는 플랫폼",
+            path: "/storebook"
         },
     ]
 
@@ -82,6 +89,7 @@ const ProjectList = () => {
                         myFunc = {item.myFunc}
                         date = {item.date}
                         info = {item.info}
+                        onClick = {() => navigate(item.path)}
                     />
                 ))}
                 </div>

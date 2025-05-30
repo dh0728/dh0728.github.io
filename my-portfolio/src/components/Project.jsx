@@ -1,5 +1,5 @@
 
-const Project = ({ idx, img, title, tools, myFunc, date, info }) => {
+const Project = ({ idx, img, title, tools, myFunc, date, info, onClick}) => {
 
     const toolBgColors = {
         Spring : "#6DB33F",
@@ -19,7 +19,10 @@ const Project = ({ idx, img, title, tools, myFunc, date, info }) => {
     }
 
     return (
-        <div className="w-[400px] h-[400px] border-2 rounded-2xl inline-block">
+        <div className="w-[400px] h-[400px] border-2 rounded-2xl inline-block"
+            onClick={onClick}
+            key={idx}
+        >
             
             {/* 이미지 */}
             <img src={img} alt="이미지" className="w-full h-[50%] rounded-t-2xl"/>

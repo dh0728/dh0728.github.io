@@ -1,24 +1,24 @@
 import { useState, useRef, useEffect } from "react";
 import ProjectHeader from "../../components/ProjectHeader";
-import CodeNovaHeader from "../../components/codeNova/CodeNovaHeader";
-import CodeNovaOverView from "../../components/codeNova/CodeNovaOverView";
-import SingleMode from "../../components/codeNova/SingleMode";
-import CodeReview from "../../components/codeNova/CodeReview";
-import CodeNovaReview from "../../components/codeNova/CodeNovaReview";
+import EcofundiaHeader from "../../components/ecofundia/EcofundiaHeader";
+import EcofundiaOverView from "../../components/ecofundia/EcofundiaOverView";
+import MsaArch from "../../components/ecofundia/MsaArch";
+import Chating from "../../components/ecofundia/Chating";
+import EcofundiaReview from "../../components/ecofundia/EcofundiaReview";
 
-const CodeNovaPage = () => {
+const EcofundiaPage = () => {
 
    
-    const sections = ["header", "overview", "singleMode", "codeReview", "review"]
+    const sections = ["header", "overview", "msa", "chating", "review"]
     const sectionRefs = {
         header: useRef(null),
         overview: useRef(null),
-        singleMode: useRef(null),
-        codeReview : useRef(null),
+        msa: useRef(null),
+        chating : useRef(null),
         review: useRef(null),
     };
 
-    const implementSections = ["singleMode", "codeReview"];
+    const implementSections = ["msa", "chating"];
 
     // 현재 색션
     const [activeSection, setActiveSection] = useState("header");
@@ -75,20 +75,20 @@ const CodeNovaPage = () => {
                 <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
                     ${activeSection === "header" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
-                    CodeNova
+                    Ecofundia
                 </h1>
 
                 {/* 타이틀 박스 */}
                 
                 <div className="w-[90%] text-4xl font-bold  mt-20 ml-30">
                     <span className="text-2xl">
-                        코딩 실력을 키우는 실전 타자 플랫폼
+                        친환경 클라우드 펀딩 플랫폼
                     </span>
-                    <span> CodeNova </span>
+                    <span> Ecofundia </span>
 
                 </div>
                     
-                <CodeNovaHeader/>
+                <EcofundiaHeader/>
 
             </div>
 
@@ -103,37 +103,37 @@ const CodeNovaPage = () => {
                     OVERVIEW
                 </div>
 
-                <CodeNovaOverView/>
+                <EcofundiaOverView/>
                 
             </div>
         
-            {/* 싱글모드드 */}
-            <div ref={sectionRefs.singleMode} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="singleMode">
+            {/* MSA 아키텍처 */}
+            <div ref={sectionRefs.msa} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="msa">
                 <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
-                    ${activeSection === "singleMode" ? "animate-slide-in-left" : "opacity-0"}
+                    ${activeSection === "msa" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
-                    SINGLEMODE
+                    MSA 
                 </h1>
                 <div className="w-[90%] text-4xl font-bold mt-20  ml-48 ">
-                    SINGLEMODE
+                    MSA 아키텍처
                 </div>
                 
-                <SingleMode/>
+                <MsaArch/>
 
             </div>
 
             {/* 코드리뷰 */}
-            <div ref={sectionRefs.codeReview} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="codeReview">
+            <div ref={sectionRefs.chating} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="chating">
                 <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
-                    ${activeSection === "codeReview" ? "animate-slide-in-left" : "opacity-0"}
+                    ${activeSection === "chating" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
-                    CODEREVIEW
+                    OPEN CHATING
                 </h1>
                 <div className="w-[90%] text-4xl font-bold  mt-20 ml-48">
-                    CODEREVIEW
+                    OPEN CHATING
                 </div>
                 
-                <CodeReview/>
+                <Chating/>
 
             </div>
 
@@ -148,7 +148,7 @@ const CodeNovaPage = () => {
                     REVIEW
                 </div>
 
-                <CodeNovaReview/>
+                <EcofundiaReview/>
     
             </div>
 
@@ -156,4 +156,4 @@ const CodeNovaPage = () => {
     )
 }
 
-export default CodeNovaPage;
+export default EcofundiaPage;

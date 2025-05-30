@@ -1,24 +1,23 @@
 import { useState, useRef, useEffect } from "react";
 import ProjectHeader from "../../components/ProjectHeader";
-import CodeNovaHeader from "../../components/codeNova/CodeNovaHeader";
-import CodeNovaOverView from "../../components/codeNova/CodeNovaOverView";
-import SingleMode from "../../components/codeNova/SingleMode";
-import CodeReview from "../../components/codeNova/CodeReview";
-import CodeNovaReview from "../../components/codeNova/CodeNovaReview";
+import KeullagHeader from "../../components/keullag/KeullagHeader";
+import KeullagOverView from "../../components/keullag/KeullagOverView";
+import Api from "../../components/keullag/api";
+import KeullagReview from "../../components/keullag/KeullagReview";
 
-const CodeNovaPage = () => {
+const KeullagPage = () => {
 
    
-    const sections = ["header", "overview", "singleMode", "codeReview", "review"]
+    const sections = ["header", "overview", "api", "review"]
     const sectionRefs = {
         header: useRef(null),
         overview: useRef(null),
-        singleMode: useRef(null),
-        codeReview : useRef(null),
+        api: useRef(null),
+        // chating : useRef(null),
         review: useRef(null),
     };
 
-    const implementSections = ["singleMode", "codeReview"];
+    const implementSections = ["api"];
 
     // 현재 색션
     const [activeSection, setActiveSection] = useState("header");
@@ -75,20 +74,20 @@ const CodeNovaPage = () => {
                 <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
                     ${activeSection === "header" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
-                    CodeNova
+                    끌락끌락
                 </h1>
 
                 {/* 타이틀 박스 */}
                 
                 <div className="w-[90%] text-4xl font-bold  mt-20 ml-30">
                     <span className="text-2xl">
-                        코딩 실력을 키우는 실전 타자 플랫폼
+                        클라이밍 기록 관리 앱
                     </span>
-                    <span> CodeNova </span>
+                    <span> 끌락끌락 </span>
 
                 </div>
                     
-                <CodeNovaHeader/>
+                <KeullagHeader/>
 
             </div>
 
@@ -103,39 +102,39 @@ const CodeNovaPage = () => {
                     OVERVIEW
                 </div>
 
-                <CodeNovaOverView/>
+                <KeullagOverView/>
                 
             </div>
         
-            {/* 싱글모드드 */}
-            <div ref={sectionRefs.singleMode} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="singleMode">
+            {/* MSA 아키텍처 */}
+            <div ref={sectionRefs.api} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="api">
                 <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
-                    ${activeSection === "singleMode" ? "animate-slide-in-left" : "opacity-0"}
+                    ${activeSection === "api" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
-                    SINGLEMODE
+                    API Development
                 </h1>
                 <div className="w-[90%] text-4xl font-bold mt-20  ml-48 ">
-                    SINGLEMODE
+                    API Development
                 </div>
                 
-                <SingleMode/>
+                <Api/>
 
             </div>
 
             {/* 코드리뷰 */}
-            <div ref={sectionRefs.codeReview} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="codeReview">
+            {/* <div ref={sectionRefs.chating} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="chating">
                 <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
-                    ${activeSection === "codeReview" ? "animate-slide-in-left" : "opacity-0"}
+                    ${activeSection === "chating" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
-                    CODEREVIEW
+                    OPEN CHATING
                 </h1>
                 <div className="w-[90%] text-4xl font-bold  mt-20 ml-48">
-                    CODEREVIEW
+                    OPEN CHATING
                 </div>
                 
-                <CodeReview/>
+                <Chating/>
 
-            </div>
+            </div> */}
 
             {/* pjt */}
             <div ref={sectionRefs.review} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center " id="review">
@@ -148,7 +147,7 @@ const CodeNovaPage = () => {
                     REVIEW
                 </div>
 
-                <CodeNovaReview/>
+                <KeullagReview/>
     
             </div>
 
@@ -156,4 +155,4 @@ const CodeNovaPage = () => {
     )
 }
 
-export default CodeNovaPage;
+export default KeullagPage;

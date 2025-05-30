@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainPage from './pages/MainPage'
-import ProjectRoutes from './routes/ProjectRoutes';
 import "./index.css";
+import CodeNovaPage from './pages/codeNova/codeNovaPage';
+import EcofundiaPage from './pages/ecofundia/EcofundiaPage';
+import KeullagPage from './pages/keullag/keullagPage';
 
 function App() {
 
@@ -9,7 +11,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage/>} />
-        <Route path="/project" element={<ProjectRoutes/>}/>
+        <Route path="/codenova" element={<CodeNovaPage/>}/>
+        <Route path="/ecofundia" element={<EcofundiaPage/>}/>
+        <Route path="/keullag" element={<KeullagPage/>}/>
       </Routes>
     </BrowserRouter>
   );
