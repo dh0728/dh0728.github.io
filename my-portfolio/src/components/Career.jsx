@@ -10,6 +10,7 @@ const Career = () => {
     ];
 
     const awards = [
+        { date: "2024.11" , content: "삼성 청년 SW 아카데미 12기 2학기 - 2학기 자율 프로젝트 최우수상 (SSAFY)"},
         { date: "2024.11" , content: "삼성 청년 SW 아카데미 12기 1학기 - 1학기 프로젝트 최우수상 (SSAFY)"},
         { date: "2024.11" , content: "삼성 청년 SW 아카데미 12기 1학기 - 1학기 성적우수상 (SSAFY)"},
         { date: "2023.03" , content: "SW전문인재양성 웹개발 과정 - 프로젝트 우수상 (디지털스마트부산아카데미)"},
@@ -61,7 +62,7 @@ const Career = () => {
             </div>
 
             {/* 수상 */}
-            <div className="w-[45%] h-[50%]  p-6 rounded-xl bg-white">
+            <div className="w-[45%] h-[60%]  p-6 rounded-xl bg-white">
               <div className="text-3xl font-bold mb-4 text-[#3BA9F2]"> 🏆 수상 </div>
 
               <div className="flex flex-col gap-4">

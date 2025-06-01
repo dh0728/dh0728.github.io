@@ -68,14 +68,14 @@ const KeullagReview = () => {
                                 <div className="font-semibold">
                                     클라이밍장 조회 성능 저하
                                 </div>
-                                
+
                                 <div className="font-semibold text-sm">
                                     문제 상황
                                 </div>
                                 <ul className=" ml-5 space-y-1 text-sm leanding-relaxed">
                                     <li>- 클라이밍장 목록을 조회할 때마다 DB에 직접 접근하여 불필요한 트래픽이 발생했고, 같은 데이터를 반복적으로 불러오면서 응답 속도가 느려졌습니다.</li>
                                 </ul>
-                                
+
                                 <div className="font-semibold text-sm">
                                     해결 방법
                                 </div>
@@ -84,7 +84,6 @@ const KeullagReview = () => {
                                 </ul>
                             </div>
 
-                            
                         </div>
 
                     </div>
