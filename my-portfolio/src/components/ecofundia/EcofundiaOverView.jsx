@@ -24,7 +24,7 @@ const EcofundiaOverView = () => {
                                 <ul className="list-none ml-4 space-y-1">
                                   <li>- 실시간 모금액 조회 - Redis + STOMP </li>
                                   <li>- 금액 페이지에 있는 사용자만 구독</li>
-                                  <li>- Redis를 활용한 캐싱으로 조회성능 개선선</li>
+                                  <li>- Redis를 활용한 캐싱으로 조회성능 개선</li>
                                 </ul>
                             </li>
                             <li>

@@ -77,6 +77,15 @@ const EcofundiaHeader = () => {
                         </ul>
                     </div>
 
+                    {/* 깃헙레포 */}
+                    <div className="flex w-full">
+                        <div className="w-[30%]">
+                            깃헙: 
+                        </div>
+                        <div>
+                            <a href="https://github.com/dh0728/EcoFundia">에코펀디아[클릭]</a>
+                        </div>
+                    </div>
                 </div>
                 {/* 구현 기능 */}
                 <div className="flex flex-col w-[40%] gap-2 mt-8">
@@ -98,7 +107,7 @@ const EcofundiaHeader = () => {
                               <li>- 펀딩 상품 리스트 조회 api 구현</li>
                               <li>- 5개씩 상품을 페이지네이션</li>
                               <li>- 펀딩 상품 상세 페이지 api 구현</li>
-                              <li>- 판매자 상세정보 api 구현현</li>
+                              <li>- 판매자 상세정보 api 구현</li>
                             </ul>
                         </li>
                         <li>
