@@ -26,7 +26,7 @@ const ProjectList = () => {
             img : keullagImg,
             tools:["Spring", "JAVA", "MySQL", "Redis"], 
             myFunc: ["BE 개발,", "화면 랜더링 API," ,"DB 설계"],
-            date: "2025.01.24 ~ 2025.02.11",
+            date: "2025.01.13 ~ 2025.02.21",
             info: "자신의 클라이밍 영상을 모션 인식을 통한 기록 손을 쓰지 않고 촬영하고 기록을 자동 저장하는 플랫폼 기획",
             path: "/keullag"
         },

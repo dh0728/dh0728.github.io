@@ -31,7 +31,7 @@ const MsaArch = () => {
                             <div className="flex flex-col w-[80%] gap-2 mt-2">
                                 <ul className=" ml-5 space-y-1 text-sm leanding-relaxed">
                                     <li>- 전체 시스템은 크게 Client, Application, Data 세 개의 계층으로 나뉘어 설계하였습니다. </li>
-                                    <li>- Public한 서비스와 Private한 서비스를 분리하였습니다다.</li>
+                                    <li>- Public한 서비스와 Private한 서비스를 분리하였습니다.</li>
                                     <li>- User, Seller, Business, Notification과 같은 Public 서비스는 클라이언트에서 직접 접근이 가능한 서비스입니다.</li>
                                     <li>- Funding, Coupon, Payment, Chat은 내부에서만 호출 가능한 Private 서비스로 설계되었습니다</li>
                                     <li>- 계층화 구조와 도메인 중심의 서비스 분리를 통해 보안성 강화, 서비스 간 결합도 감소, 그리고 역할 책임의 명확화할 수 있도록 설계하였습니다.</li>
