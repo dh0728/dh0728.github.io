@@ -9,6 +9,7 @@ const CodeNovaReview = () => {
                         
                         <div className="w-full h-auto flex flex-col gap-2 ml-8">
 
+
                             <div className="text-xl font-bold">
                                 회고
                             </div>
