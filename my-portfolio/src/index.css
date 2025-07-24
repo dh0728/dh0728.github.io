@@ -19,4 +19,7 @@ body {
   scrollbar-width: none;
 }
 
-
+/* 전역 스타일 (예: index.css나 App.css) */
+.swiper-pagination {
+  bottom: -5px !important;  /* 점을 더 아래로 */
+}

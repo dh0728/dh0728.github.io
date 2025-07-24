@@ -19,7 +19,7 @@ const Project = ({ idx, img, title, tools, myFunc, date, info, onClick}) => {
     }
 
     return (
-        <div className="w-[400px] h-[400px] border-2 rounded-2xl inline-block"
+        <div className="w-[100%] h-[95%] border-2 rounded-2xl inline-block shadow-xl"
             onClick={onClick}
             key={idx}
         >
@@ -33,12 +33,12 @@ const Project = ({ idx, img, title, tools, myFunc, date, info, onClick}) => {
             </div>
 
             {/* 날짜 */}
-            <div className="w-full h-[5%] flex items-center p-4">
+            <div className="w-full h-[5%] flex items-center p-4 text-sm">
                 {date}
             </div>
 
             {/* tools */}
-            <div className="w-full h-[4%] flex items-center text-white p-4 gap-2">
+            <div className="w-full h-auto flex flex-wrap items-center text-white p-4 gap-2">
                 {tools.map((item, idx) => {
                     const bgColor = toolBgColors[item] || "#5F259F"
                     return (
@@ -54,7 +54,7 @@ const Project = ({ idx, img, title, tools, myFunc, date, info, onClick}) => {
             </div>
 
             {/* 내가 맡은 역할 */}
-            <div className="w-full h-[4%] flex items-center p-4 gap-2">
+            <div className="w-full h-[4%] flex items-center p-4 gap-2 text-xs">
                 {myFunc.map((item, idx) => (
                     <span key={idx}> {item} </span>
                 ))}
@@ -62,7 +62,7 @@ const Project = ({ idx, img, title, tools, myFunc, date, info, onClick}) => {
 
 
             {/* 프로젝트 간단 설명 */}
-            <div className="w-full h-auto items-center px-4">
+            <div className="w-full h-auto items-center px-4 text-xs">
                 <span> {info} </span>
             </div>
         </div>

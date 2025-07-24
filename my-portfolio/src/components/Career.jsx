@@ -40,7 +40,7 @@ const Career = () => {
   return (
     <div className="w-[90%] h-[70%]">
       {/* 모바일: 캐러셀 */}
-      <div className="md:hidden w-full h-full">
+      <div className="md:hidden w-full h-full mt-16">
         <Swiper
           modules={[Pagination]}
           pagination={{ clickable: true }}
@@ -71,17 +71,17 @@ const Career = () => {
       </div>
 
       {/* 태블릿/PC: 기존 2열 레이아웃 유지 */}
-      <div className="hidden md:flex flex-wrap justify-center gap-6 h-full">
+      <div className="hidden md:flex flex-wrap justify-center gap-6 h-full mt-14">
         {sections.map((section, idx) => (
           <div key={idx} className="w-[45%] p-6 rounded-xl bg-white shadow-md h-auto">
-            <div className="text-3xl font-bold mb-4 text-[#3BA9F2]">{section.title}</div>
+            <div className="text-2xl font-bold mb-4 text-[#3BA9F2]">{section.title}</div>
             <div className="flex flex-col gap-4">
               {section.items.map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
-                  <div className="w-[35%] min-w-[100px] bg-[#E6F4FE] text-[#005BAC] px-3 py-1 rounded-md font-semibold text-sm text-center shadow-sm">
+                  <div className="w-[35%] min-w-[100px] bg-[#E6F4FE] text-[#005BAC] px-3 py-1 rounded-md font-semibold text-xs text-center shadow-sm">
                     {item.date}
                   </div>
-                  <div className="w-[65%] text-gray-800 text-base leading-snug">
+                  <div className="w-[65%] text-gray-800 text-xs leading-snug">
                     {item.title ? `${item.title} ${item.content}` : item.content}
                   </div>
                 </div>
