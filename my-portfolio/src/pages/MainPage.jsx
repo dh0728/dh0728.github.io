@@ -44,7 +44,8 @@ const MainPage = () => {
 
     
     return(
-        <div className="w-full h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+        <div className="w-full h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth
+        ">
             <MainHeader
                 onMoveToSection={(section) => {
                     sectionRefs[section]?.current?.scrollIntoView({ behavior: 'smooth' });
@@ -66,18 +67,20 @@ const MainPage = () => {
 
             {/* 내소개 */}
             <div ref={sectionRefs.about} 
-                className="relative overflow-hidden w-full h-screen snap-start flex items-center" id="about">
+                className="relative overflow-hidden w-full h-screen snap-start flex items-center
+                           bg-gradient-to-b from-blue-50 via-blue-100 to-blue-200 
+                " id="about">
                 <AboutMe/>
             </div>
 
-            {/* 주요 이력력 */}
+            {/* 주요 이력 */}
             <div ref={sectionRefs.career} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center " id="career">
-                <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
+                <h1 className={`absolute top-16 left-4 text-[5rem] md:text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
                     ${activeSection === "career" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
                     CAREER
                 </h1>
-                <div className="w-[90%] text-4xl font-bold  mt-20 ml-48">
+                <div className="w-full md:w-[90%] text-3xl md:text-4xl font-bold mt-12 md:mt-20 ml-20 md:ml-48 text-blue-500">
                     CAREER
                 </div>
                 <Career/>
