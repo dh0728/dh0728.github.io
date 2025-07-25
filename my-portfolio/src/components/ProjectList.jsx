@@ -16,34 +16,41 @@ const ProjectList = () => {
 
   const pjts = [
     {
-      title: "친환경 크라우드 펀딩 플랫폼 개발 [에코펀디아]",
+      title: "에코펀디아",
+      content: "친환경 크라우드 펀딩 플랫폼 개발",
       img: ecoFundiaImg,
+      team : 6,
       tools: ["Spring", "STOMP", "Kafka", "MySQL", "MongoDB"],
       myFunc: ["BE 개발,", "화면 랜더링 API,", "채팅,", "MSA 아키텍처 설계"],
-      date: "2025.02.24 ~ 2025.04.11",
+      date: "2025.03.03 ~ 2025.04.11 (6주)",
       info: "친환경 상품 펀딩 사업을 전개 및 소비자는 관심있는 친황경 펀딩 상품을 구매할 수 있는 양방향 플랫폼",
       path: "/ecofundia",
     },
     {
-      title: "클라이밍을 취미로 즐길 수 있는 앱 [끌락끌락]",
+      title: "끌락끌락",
+      content: "클라이밍을 취미로 즐길 수 있는 앱",
       img: keullagImg,
+      team : 6,
       tools: ["Spring", "JAVA", "MySQL", "Redis"],
       myFunc: ["BE 개발,", "화면 랜더링 API,", "DB 설계"],
-      date: "2025.01.13 ~ 2025.02.21",
+      date: "2025.01.13 ~ 2025.02.21 (6주)",
       info: "자신의 클라이밍 영상을 모션 인식을 통한 기록 손을 쓰지 않고 촬영하고 기록을 자동 저장하는 플랫폼 기획",
       path: "/keullag",
     },
     {
-      title: "코딩 실력을 키우는 실전 타자 플랫폼 [코드노바]",
+      title: "코드노바",
+      content: "코딩 실력을 키우는 실전 타자 플랫폼",
       img: codeNovaImg,
+      team : 6,
       tools: ["React", "JS", "tailwind"],
       myFunc: ["FE 개발,", "싱글모드,", "메크로 감지"],
-      date: "2025.04.14 ~ 2025.05.22",
+      date: "2025.04.14 ~ 2025.05.22 (6주)",
       info: "개발자를 꿈꾸는 사람들이 자연스럽게 몰입하고 성장할 수 있는 실전형 코딩 감각 훈련 플랫폼",
       path: "/codenova",
     },
     {
-      title: "영수증 한 장으로 끝내는 금융 생활 [가계북]",
+      title: "가계북",
+      content: "영수증 한 장으로 끝내는 금융 생활",
       img: storeBookImg,
       tools: ["Django", "Python", "LangChain", "SQLite"],
       myFunc: ["BE 개발,", "카드추천기능,", "DB 설계,", "데이터 크롤링"],
@@ -71,6 +78,8 @@ const ProjectList = () => {
             <Project
               img={item.img}
               title={item.title}
+              content={item.content}
+              team={item.team}
               tools={item.tools}
               myFunc={item.myFunc}
               date={item.date}
