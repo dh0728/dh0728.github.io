@@ -2,13 +2,13 @@ import ChatingDescImg from "../../assets/images/chating_desc.png"
 
 const Chating = () => {
     return(
-                <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start">
+                <div className="relative w-full h-[65%] flex flex-col md:flex-row flex-wrap justify-center gap-8 items-start mt-16 md:mt-28 lg:mt-40">
                     
                     {/* 프로젝트 정보 */}
-                    <div className="w-[40%] h-full flex flex-col">
+                    <div className="w-full md:w-[40%] h-full flex flex-col text-xs md:text-sm lg:text-base">
                         
                         <div className="w-full h-auto flex flex-col gap-2 ml-8 mt-8">
-                            <div className="text-xl font-bold">
+                            <div className="text-sm md:text-base lg:text-lg font-bold">
                                 오픈 채팅 시스템
                             </div>
 
@@ -22,12 +22,12 @@ const Chating = () => {
                         </div>
 
                         <div className="w-full h-auto flex flex-col gap-2 ml-8 mt-8">
-                            <div className="text-xl font-bold">
+                            <div className="text-sm md:text-base lg:text-lg font-bold">
                                 설명
                             </div>
 
                             <div className="flex flex-col w-[80%] gap-2 mt-2">
-                                <ul className=" ml-5 space-y-1 text-sm leanding-relaxed">
+                                <ul className=" ml-5 space-y-1 leanding-relaxed">
                                     <li>- 실시간 채팅 메시지는 Kafka를 통해 비동기적으로 처리하여 트래픽 집중 시에도 안정적인 메시지 전달이 가능하도록 하였습니다.</li>
                                     <li>- Kafka의 토픽 구조를 펀딩 상품 단위로 분리하여 채팅방 간 메시지 간섭을 방지하였으며, 병렬 처리가 가능하도록 구성하였습니다.</li>
                                     <li>- 채팅 메시지는 MongoDB에 바로 저장하지 않고, 메모리 버퍼에 임시 저장하여 디스크 I/O 부하를 최소화하였습니다.</li>
@@ -38,9 +38,9 @@ const Chating = () => {
                         </div>
                     </div>
         
-                    <div className="w-[50%] flex h-full items-center mt-4">
+                    <div className="w-full md:w-[50%] flex h-full items-center justify-center mt-4">
                         <img src={ChatingDescImg} alt="채팅설명" 
-                            
+                            className="w-[80%]"
                         />
 
                     </div>

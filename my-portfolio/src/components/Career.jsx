@@ -12,7 +12,7 @@ const Career = () => {
     ];
 
     const awards = [
-        { date: "2025.06" , content: "교육노동부 청장상 - 교육노동부 (SSAFY)"},
+        { date: "2025.06" , content: "교육노동부 청장상 - 교육노동부 (삼성 청년 SW 아카데미)"},
         { date: "2025.06" , content: "SSAFY 프로젝트 전시발표회 전시부문 1등 - 삼성 청년 SW 아카데미"},
         { date: "2025.06" , content: "2학기 자율 프로젝트 최우수상 - 삼성 청년 SW 아카데미"},
         { date: "2024.11" , content: "1학기 프로젝트 최우수상 - 삼성 청년 SW 아카데미"},

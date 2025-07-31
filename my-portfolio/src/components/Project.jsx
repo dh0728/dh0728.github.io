@@ -1,5 +1,5 @@
 
-import { Calendar, Users, Briefcase, Laptop, Hammer } from "lucide-react";
+import { Calendar, Users, Laptop} from "lucide-react";
 
 const Project = ({ idx, img, title, content, team, tools, myFunc, date, info, onClick}) => {
 

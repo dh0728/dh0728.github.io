@@ -5,12 +5,12 @@ import meteoImg from "../../assets/images/meteo.png";
 const CodeNovaOverView = () => {
 
         return(
-            <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start">
+            <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start mt-16 md:mt-28 lg:mt-40">
                 
                 {/* 프로젝트 정보 */}
-                <div className="w-[40%] h-full flex gap-8">
+                <div className="w-full md:w-[40%] h-full flex flex-col md:flex-row gap-8 text-xs md:text-sm">
                     
-                    <div className="w-full h-full flex flex-col gap-2 ml-8 mt-8">
+                    <div className="w-[90%] md:w-full h-full flex flex-col gap-2 ml-8 mt-8">
                         <div>
                             요즘 개발 환경은 자동완성, 코드 포맷팅, AI 힌트에 많이 의존합니다. 하지만 이러한 도구에 익숙해질수록
                             스스로 생각하고 코드를 손으로 익히는 감각은 점점 줄어듭니다. 때문에 저희는 단순히 도구에 의존하는 것이 아닌
@@ -19,7 +19,7 @@ const CodeNovaOverView = () => {
                     
                     {/* 구현 기능 */}
                     <div className="flex flex-col w-full gap-2 mt-4">
-                        <ul className="list-none ml-5 space-y-1 text-sm leanding-relaxed">
+                        <ul className="list-none ml-5 space-y-1 leanding-relaxed">
                             <li>
                                 <strong>🎮 싱글 모드</strong>
                                 <ul className="list-none ml-4 space-y-1">
@@ -56,19 +56,19 @@ const CodeNovaOverView = () => {
                     </div>
                 </div>
     
-                <div className="w-[50%] flex h-full items-center">
+                <div className="w-full md:w-[50%] flex h-full items-center justify-center">
                     <img src={archImg} alt="아키텍처" 
-                        className="w-[50%]"
+                        className="rounded-2xl w-[40%] md:w[35%] h-auto"
                     />
 
                     {/* 화면 이미지들 */}
-                    <div className="w-[50%] flex flex-col p-2 gap-2">
+                    <div className="w-[40%] flex flex-col p-2 gap-2">
                         <img src={multImg} alt="아키텍처" 
-                        className="w-full"
+                        className="rounded-2xl w-full h-auto"
                         />
-                    <img src={meteoImg} alt="아키텍처" 
-                        className="w-full"
-                    />
+                        <img src={meteoImg} alt="아키텍처" 
+                            className="rounded-2xl  w-full h-auto"
+                        />
                     </div>
                 </div>
                 

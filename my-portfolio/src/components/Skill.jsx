@@ -67,7 +67,7 @@ const Skill = () => {
   ];
 
   return (
-    <div className="w-[90%] mt-12">
+    <div className="w-[90%] h-auto mt-20">
       <Swiper
         modules={[Pagination]}
         pagination={{ clickable: true }}
@@ -77,11 +77,11 @@ const Skill = () => {
           768: { slidesPerView: 2 },     // 태블릿: 2개씩
           1024: { slidesPerView: 3 },    // PC: 3개씩
         }}
-        className="w-full"
+        className="w-full "
       >
         {skills.map((section, idx) => (
           <SwiperSlide key={idx}>
-            <div className="flex flex-col items-center p-8 border-2 rounded-3xl shadow-xl bg-white h-full">
+            <div className="flex flex-col items-center p-8  bg-white h-full border-2 rounded-2xl shadow-xl cursor-pointer">
               <div className="text-2xl font-bold mb-6 text-center">{section.title}</div>
               <div className={`grid ${section.list.length > 2 ? "grid-cols-2" : "grid-cols-1"} gap-6 place-items-center p-4`}>
                 {section.list.map((tool, j) => (

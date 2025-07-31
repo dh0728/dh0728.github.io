@@ -3,12 +3,12 @@ import msaAcrhImg from "../../assets/images/msa_arch.png";
 const EcofundiaOverView = () => {
 
         return(
-            <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start">
+            <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start mt-16 md:mt-28 lg:mt-40">
                 
                 {/* 프로젝트 정보 */}
-                <div className="w-[40%] h-full flex gap-8">
+                <div className="w-full md:w-[40%] h-full flex flex-col md:flex-row gap-8 text-xs md:text-sm lg:text-base">
                     
-                    <div className="w-full h-full flex flex-col gap-2 ml-8 mt-8">
+                    <div className="w-[90%] md:w-full h-full flex flex-col gap-2 ml-8 mt-8 p-1">
                         <div>
                             최근 크라우드 펀딩 시장은 빠르게 성장하고 있는데요. 특히, 친환경에 대한 관심이 높아지면서 환경 보호 키워드가 
                             포함된 제품의 수요가 증가하고 있으며, 산불과 같은 재난 상황에서도 시민들은 펀딩을 통해 자발적으로 도움을 
@@ -18,7 +18,7 @@ const EcofundiaOverView = () => {
                     
                     {/* 구현 기능 */}
                     <div className="flex flex-col w-full gap-2 mt-4">
-                        <ul className="list-none ml-5 space-y-1 text-sm leanding-relaxed">
+                        <ul className="list-none ml-5 space-y-1 leanding-relaxed">
                             <li>
                                 <strong>리얼 타임 모금액</strong>
                                 <ul className="list-none ml-4 space-y-1">
@@ -48,7 +48,7 @@ const EcofundiaOverView = () => {
                     </div>
                 </div>
     
-                <div className="w-[50%] flex h-full items-center">
+                <div className="w-[80%] md:w-[50%] flex h-full items-center">
                     <img src={msaAcrhImg} alt="아키텍처" 
                         className="w-full"
                     />

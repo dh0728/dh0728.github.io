@@ -6,8 +6,6 @@ import Api from "../../components/keullag/api";
 import KeullagReview from "../../components/keullag/KeullagReview";
 
 const KeullagPage = () => {
-
-   
     const sections = ["header", "overview", "api", "review"]
     const sectionRefs = {
         header: useRef(null),
@@ -46,7 +44,13 @@ const KeullagPage = () => {
 
     
     return(
-        <div className="w-full h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+        <div className="
+            w-full
+            h-auto md:h-screen
+            overflow-y-auto md:overflow-y-scroll
+            scroll-smooth
+            md:snap-y md:snap-mandatory
+        ">
             <ProjectHeader
                 onMoveToSection={(section) => {
                     sectionRefs[section]?.current?.scrollIntoView({ behavior: 'smooth' });
@@ -69,21 +73,31 @@ const KeullagPage = () => {
 
             {/* 내소개 */}
             <div ref={sectionRefs.header} 
-                className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center " id="header">
+                id="header"
+                className="relative w-full
+                        h-auto md:h-screen
+                        flex flex-col justify-center items-center
+                        snap-none md:snap-start
+                        py-12 md:py-0" 
+            >
 
-                <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
-                    ${activeSection === "header" ? "animate-slide-in-left" : "opacity-0"}
-                `}>
+                <h1 className={`absolute top-16 md:top-20 left-4
+                    text-[2.5rem] md:text-[5rem] lg:text-[7rem]
+                    font-extrabold text-black opacity-5 z-0 select-none
+                    ${activeSection === "header" ? "animate-slide-in-left" : "opacity-0"}`
+                }>
                     끌락끌락
                 </h1>
 
                 {/* 타이틀 박스 */}
                 
-                <div className="w-[90%] text-4xl font-bold  mt-20 ml-30">
-                    <span className="text-2xl">
+                <div className="absolute top-24 md:top-36 left-6 md:left-40 md:w-[90%] lg:top-44 font-bold">
+                    <span className="text-sm md:text-base lg:text-xl text-gray-600">
                         클라이밍 기록 관리 앱
                     </span>
-                    <span> 끌락끌락 </span>
+                    <span className="text-blue-500 text-xl md:text-2xl lg:text-4xl"> 
+                        끌락끌락 
+                    </span>
 
                 </div>
                     
@@ -91,30 +105,54 @@ const KeullagPage = () => {
 
             </div>
 
-            {/* 주요 이력 */}
-            <div ref={sectionRefs.overview} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center " id="overview">
-                <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
+            {/* Overview Section */}
+            <div
+              ref={sectionRefs.overview}
+              id="overview"
+              className="
+                relative w-full
+                h-auto md:h-screen
+                flex flex-col justify-center items-center
+                snap-none md:snap-start
+                py-12 md:py-0
+              "
+            >
+                
+                <h1 className={`absolute top-16 md:top-20 left-4
+                    text-[2.5rem] md:text-[5rem] lg:text-[7rem]
+                    font-extrabold text-black opacity-5 z-0 select-none
                     ${activeSection === "overview" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
                     OVERVIEW
                 </h1>
-                <div className="w-[90%] text-4xl font-bold  mt-20 ml-48">
-                    OVERVIEW
+                <div className="absolute top-24 md:top-36 left-6 md:left-40 md:w-[90%] lg:top-44 font-bold">
+                    <span className="text-blue-500 text-xl md:text-2xl lg:text-4xl">
+                        OVERVIEW
+                    </span>
                 </div>
-
                 <KeullagOverView/>
                 
             </div>
         
-            {/* MSA 아키텍처 */}
-            <div ref={sectionRefs.api} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="api">
-                <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
+            {/* API Developmet */}
+            <div ref={sectionRefs.api} className="relative w-full
+                h-auto md:h-screen
+                flex flex-col justify-center items-center
+                snap-none md:snap-start
+                py-12 md:py-0" id="api"
+            >
+                <h1 className={`
+                    absolute top-16 md:top-20 left-4
+                    text-[2.5rem] md:text-[5rem] lg:text-[7rem]
+                    font-extrabold text-black opacity-5 z-0 select-none
                     ${activeSection === "api" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
                     API Development
                 </h1>
-                <div className="w-[90%] text-4xl font-bold mt-20  ml-48 ">
-                    API Development
+                <div className="absolute top-24 md:top-36 left-6 md:left-40 md:w-[90%] lg:top-44 font-bold">
+                    <span className="text-blue-500 text-xl md:text-2xl lg:text-4xl">
+                        API Development
+                    </span>
                 </div>
                 
                 <Api/>
@@ -136,15 +174,32 @@ const KeullagPage = () => {
 
             </div> */}
 
-            {/* pjt */}
-            <div ref={sectionRefs.review} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center " id="review">
-                <h1 className={`absolute top-16 left-4 text-[8rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
+            {/* REVIEW */}
+            <div
+                ref={sectionRefs.review}
+                id="review"
+                className="
+                  relative w-full
+                  h-auto md:h-screen
+                  flex flex-col justify-center items-center
+                  snap-none md:snap-start
+                  py-12 md:py-0
+                "
+            >
+                <h1
+                  className={`
+                    absolute top-16 md:top-20 left-4
+                    text-[2.5rem] md:text-[5rem] lg:text-[7rem]
+                    font-extrabold text-black opacity-5 z-0 select-none
                     ${activeSection === "review" ? "animate-slide-in-left" : "opacity-0"}
-                `}>
+                  `}
+                >
                     REVIEW
                 </h1>
-                <div className="w-[90%] text-4xl font-bold  mt-20 ml-48 ">
-                    REVIEW
+                <div className="absolute top-24 md:top-36 left-6 md:left-40 md:w-[90%] lg:top-44 font-bold">
+                    <span className="text-blue-500 text-xl md:text-2xl lg:text-4xl">
+                        REVIEW
+                    </span>
                 </div>
 
                 <KeullagReview/>

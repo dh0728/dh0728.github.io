@@ -2,15 +2,14 @@ import CodeReviewImg from "../../assets/images/codeReview.png"
 
 const CodeNovaReview = () => {
     return(
-                <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start">
+                <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-4 md:gap-8 items-start mt-16 md:mt-28 lg:mt-40">
                     
                     {/* 프로젝트 정보 */}
-                    <div className="w-[45%] h-full flex flex-col">
+                    <div className="w-full md:w-[45%] h-full flex flex-col text-xs md:text-sm lg:text-sm">
                         
-                        <div className="w-full h-auto flex flex-col gap-2 ml-8">
+                        <div className="w-[80%] md:w-full h-auto flex flex-col gap-2 ml-8 mt-8">
 
-
-                            <div className="text-xl font-bold">
+                            <div className="text-sm md:text-base lg:text-lg font-bold">
                                 회고
                             </div>
 
@@ -21,11 +20,11 @@ const CodeNovaReview = () => {
                                 팀원들과 매일 진행 상황을 공유하며 각자의 역할에 유연하게 대응하고, 일부 백엔드 기능까지 함께 분담해 개발 효율을 높일 수 있었습니다.  
                                 <br/>이 경험을 통해 역할 분담과 커뮤니케이션이 명확한 협업이야말로 서비스 완성도를 높이는 핵심이라는 것을 깊이 체감했습니다.
                             </div>
-                            <div className="text-xl font-bold">
+                            <div className="text-sm md:text-base lg:text-lg font-bold">
                                 아쉬운 점
                             </div>
 
-                            <div className="flex flex-col w-full gap-2 mt-2 text-sm">
+                            <div className="flex flex-col w-full gap-2 mt-2 ">
                                 메크로 감지 로직을 통해 기본적인 자동 입력은 어느 정도 탐지할 수 있었지만, 사람의 입력 패턴을 모방한 정교한 메크로는 완전히 구별하지 못한 점이 아쉬웠습니다.  
                                 이후에는 KeyLogs 데이터를 기반으로 입력 패턴을 학습하고 분석하는 AI 기반 메크로 판별 모델을 적용해  
                                 보다 정밀한 탐지가 가능하도록 고도화해보고 싶습니다.  
@@ -44,12 +43,10 @@ const CodeNovaReview = () => {
                     <div        
                         className="w-[1px] h-full bg-gray-400 ml-8"
                     />
-
-                    
         
-                    <div className="w-[45%] flex flex-col h-full items-center mt-8 gap-8">
-                        <div className="w-full h-auto flex flex-col gap-2 ml-8">
-                            <div className="text-xl font-bold">
+                    <div className="w-full md:w-[45%] flex flex-col h-full items-start md:mt-8 gap-8 text-xs md:text-sm lg:text-sm">
+                        <div className="w-[80%] md:w-full h-auto flex flex-col gap-2 ml-8">
+                            <div className="text-sm md:text-base lg:text-lg font-bold">
                                 트러블 슈팅
                             </div>
 
@@ -58,7 +55,7 @@ const CodeNovaReview = () => {
                                     메크로 및 악성 유저
                                 </div>
 
-                                <div className="font-semibold text-sm">
+                                <div className="font-semibold ">
                                     문제 상황
                                 </div>
                                 <ul className=" ml-5 space-y-1 text-sm leanding-relaxed">
@@ -67,10 +64,10 @@ const CodeNovaReview = () => {
                                     <li>- 또한 메크로를 통해 타수를 조작시도</li>
                                 </ul>
 
-                                <div className="font-semibold text-sm">
+                                <div className="font-semibold ">
                                     해결 방법
                                 </div>
-                                <ul className=" ml-5 space-y-1 text-sm leanding-relaxed">
+                                <ul className=" ml-5 space-y-1 leanding-relaxed">
                                     <li>- 서버로 KeyLogs를 전달해 서버에서 측정하고 전달시에도 AES암호화 알고리즘을 통해 데이터 암호화</li>
                                     <li>- 서버에서 KeyLogs를 통해 시뮬레이션을 통해 올바르게 입력했는지 검사</li>
                                     <li>- KeyLogs를 통해 표준편차, 입력간 시간간격, 백스페이스 사용 여부, 특수키 사용여부 확인</li>

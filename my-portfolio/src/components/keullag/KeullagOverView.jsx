@@ -3,12 +3,12 @@ import acrhImg from "../../assets/images/keullag_aki.png";
 const KeullagOverView = () => {
 
         return(
-            <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start">
+            <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start mt-16 md:mt-28 lg:mt-40">
                 
                 {/* 프로젝트 정보 */}
-                <div className="w-[40%] h-full flex gap-8">
+                <div className="w-full md:w-[40%] h-full flex flex-col md:flex-row gap-8 text-xs md:text-sm lg:text-base">
                     
-                    <div className="w-full h-full flex flex-col gap-2 ml-8 mt-8">
+                    <div className="w-[90%] md:w-full h-full flex flex-col gap-2 ml-8 mt-8 p-1">
                         <div>
                             클라이밍을 취미로 즐기는 사람들을 위해, 더 편리하고 즐겁게 클라이밍을 기록하고 공유할 수 있는 서비스를 기획하였습니다.
                             최근에는 자신의 클라이밍 영상을 촬영하여 SNS에 업로드하고 기록하는 문화가 활성화되고 있는데요. 저희는 그에 맞춰 
@@ -17,7 +17,7 @@ const KeullagOverView = () => {
                     
                     {/* 구현 기능 */}
                     <div className="flex flex-col w-full gap-2 mt-4">
-                        <ul className="list-none ml-5 space-y-1 text-sm leanding-relaxed">
+                        <ul className="list-none ml-5 space-y-1 leanding-relaxed">
                             <li>
                                 <strong>🔍 주변 클라이밍장 조회</strong>
                                 <ul className="list-none ml-4 space-y-1">
@@ -54,7 +54,7 @@ const KeullagOverView = () => {
                     </div>
                 </div>
     
-                <div className="w-[50%] flex h-full items-center">
+                <div className="w-[80%] md:w-[50%] flex h-full items-center">
                     <img src={acrhImg} alt="아키텍처" 
                         className="w-full"
                     />

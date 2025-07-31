@@ -3,13 +3,13 @@ import KeullagPlaceImg from "../../assets/images/keullagPlace.jpg";
 
 const Api = () => {
     return(
-                <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start">
+                <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start mt-16 md:mt-28 lg:mt-40">
                     
                     {/* 프로젝트 정보 */}
-                    <div className="w-[50%] h-full flex flex-col">
+                    <div className="w-full md:w-[40%] h-full flex flex-col gap-8 text-xs md:text-sm lg:text-base">
                         
                         <div className="w-full h-auto flex flex-col gap-2 ml-8 mt-8">
-                            <div className="text-xl font-bold">
+                            <div className="text-sm md:text-base lg:text-lg font-bold">
                                 클라이밍장 조회, 기록 통계, 기록 저장 API 구현
                             </div>
 
@@ -23,7 +23,7 @@ const Api = () => {
                             </div>
                         </div>
 
-                        <div className="w-full h-auto flex flex-col gap-2 ml-8 mt-8">
+                        <div className="w-full h-auto flex flex-col gap-2 ml-8">
                             <div className="text-xl font-bold">
                                 설명
                             </div>
@@ -39,12 +39,12 @@ const Api = () => {
                         </div>
                     </div>
         
-                    <div className="w-[40%] flex h-full items-center mt-4 gap-4">
+                    <div className="w-full md:w-[40%] flex h-full items-center justify-center gap-4">
                         <img src={KeullagPlaceImg} alt="클라이밍장" 
-                            className="rounded-2xl  h-full"
+                            className="rounded-2xl w-[35%] h-full"
                         />
                         <img src={KeullagRecordImg} alt="기록" 
-                            className="rounded-2xl  h-full"
+                            className="rounded-2xl w-[35%] h-full"
                         />
 
 

@@ -2,17 +2,17 @@ import CodeReviewImg from "../../assets/images/codeReview.png"
 
 const CodeReview = () => {
     return(
-                <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start">
+                <div className="relative w-full h-[65%] flex flex-col md:flex-row flex-wrap justify-center gap-8 items-start mt-16 md:mt-28 lg:mt-40">
                     
                     {/* 프로젝트 정보 */}
-                    <div className="w-[40%] h-full flex flex-col">
+                    <div className="w-full md:w-[40%] h-full flex flex-col gap-8 text-xs md:text-sm lg:text-base">
                         
                         <div className="w-full h-auto flex flex-col gap-2 ml-8 mt-8">
-                            <div className="text-xl font-bold">
+                            <div className="text-sm md:text-base lg:text-lg font-bold">
                                 코드 리뷰 화면
                             </div>
 
-                            <div className="flex flex-col w-full gap-2 mt-2">
+                            <div className="flex flex-col w-[80%] md:w-full gap-2 mt-2">
                                 <ul className=" ml-5 space-y-1 text-sm leanding-relaxed">
                                     <li>- 타이핑이 끝난 후 사용자가 입력한 코드를 줄 단위로 다시 확인할 수 있도록 구성</li>
                                     <li>- Highlight.js를 이용해 언어 별로 문법에 맞는 하이라이팅 제공 </li>
@@ -21,8 +21,8 @@ const CodeReview = () => {
                             </div>
                         </div>
 
-                        <div className="w-full h-auto flex flex-col gap-2 ml-8 mt-8">
-                            <div className="text-xl font-bold">
+                        <div className="w-full h-auto flex flex-col gap-2 ml-8">
+                            <div className="text-sm md:text-base lg:text-lg font-bold">
                                 설명
                             </div>
 
@@ -37,8 +37,8 @@ const CodeReview = () => {
                         </div>
                     </div>
         
-                    <div className="w-[50%] flex h-full items-center mt-4">
-                        <img src={CodeReviewImg} alt="코드리뷰" 
+                    <div className="w-full md:w-[50%] flex h-full items-center justify-center mt-4">
+                        <img src={CodeReviewImg} className="w-[90%] rounded-2xl" alt="코드리뷰" 
                             
                         />
 
