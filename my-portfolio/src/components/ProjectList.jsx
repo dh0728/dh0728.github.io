@@ -22,7 +22,7 @@ const ProjectList = () => {
       team : 6,
       tools: ["Spring", "STOMP", "Kafka", "MySQL", "MongoDB"],
       myFunc: ["BE 개발", "화면 랜더링 API", "채팅", "MSA 아키텍처 설계"],
-      date: "2025.03.03 ~ 2025.04.11 (6주)",
+      date: "2025.02.24 ~ 2025.04.11 (6주)",
       info: "친환경 상품 펀딩 사업을 전개 및 소비자는 관심있는 친황경 펀딩 상품을 구매할 수 있는 양방향 플랫폼",
       path: "/ecofundia",
     },

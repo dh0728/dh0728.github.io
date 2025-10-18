@@ -23,7 +23,8 @@ const Career = () => {
 
     const qualifications = [
         { date: "2024.12" , content: "SQLD"},
-        { date: "2025.06" , content: "정보처리기사(예정)"}
+        { date: "2025.10" , content: "AWS Certified Cloud Practitioner"},
+        { date: "2025.12" , content: "정보처리기사(예정)"}
     ]
 
     const language = [
