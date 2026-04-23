@@ -28,14 +28,15 @@ const Career = () => {
     ]
 
     const language = [
-        { date: "2023.12" , title: "OPIC" , content: "Intermediate Mid"},
+         { date: "2023.12" , title: "TOEIC Speaking" , content: "- Intermediate High"},
     ]
 
   const sections = [
     { title: "🎓 교육 수료", items: education },
     { title: "🏆 수상", items: awards },
     { title: "🪪 자격증", items: qualifications },
-    { title: "🌐 어학", items: language },
+    // { title: "🌐 어학", items: language },
+    { title: "", items: language },
   ];
 
   return (
