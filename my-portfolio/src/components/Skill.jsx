@@ -67,7 +67,7 @@ const Skill = () => {
   ];
 
   return (
-    <div className="w-[90%] h-auto mt-20">
+    <div className="w-[90%] h-auto">
       <Swiper
         modules={[Pagination]}
         pagination={{ clickable: true }}

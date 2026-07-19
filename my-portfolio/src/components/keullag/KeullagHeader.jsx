@@ -66,7 +66,7 @@ const KeullagHeader = () => {
 
                         </div>
                         <div>
-                            40%
+                            25%
                         </div>
                     </div>
 

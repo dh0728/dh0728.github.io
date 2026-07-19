@@ -74,42 +74,48 @@ const MainPage = () => {
             </div>
 
             {/* 주요 이력 */}
-            <div ref={sectionRefs.career} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center " id="career">
+            <div ref={sectionRefs.career} className="relative overflow-hidden w-full h-screen snap-start flex flex-col items-center pt-28 md:pt-32" id="career">
                 <h1 className={`absolute top-20 left-4 text-[5rem] md:text-[7rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
                     ${activeSection === "career" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
                     CAREER
                 </h1>
-                <div className="absolute top-32 left-16 md:top-36 md:left-40 md:w-[90%] text-3xl md:text-4xl font-bold text-blue-500">
+                <div className="relative z-10 self-start ml-6 md:ml-24 text-3xl md:text-4xl font-bold text-blue-500 shrink-0">
                     CAREER
                 </div>
-                <Career/>
+                <div className="w-full flex-1 min-h-0 flex items-center justify-center">
+                    <Career/>
+                </div>
             </div>
-        
+
             {/* 스킬 */}
-            <div ref={sectionRefs.skill} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center" id="skill">
+            <div ref={sectionRefs.skill} className="relative overflow-hidden w-full h-screen snap-start flex flex-col items-center pt-28 md:pt-32" id="skill">
                 <h1 className={`absolute top-20 left-4 text-[5rem] md:text-[7rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
                     ${activeSection === "skill" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
                     SKILL
                 </h1>
-                <div className="absolute top-32 left-16 md:top-36 md:left-40 md:w-[90%] text-3xl md:text-4xl font-bold text-blue-500 ">
+                <div className="relative z-10 self-start ml-6 md:ml-24 text-3xl md:text-4xl font-bold text-blue-500 shrink-0">
                     SKILL
                 </div>
-                <Skill/>
+                <div className="w-full flex-1 min-h-0 flex items-center justify-center">
+                    <Skill/>
+                </div>
             </div>
 
             {/* pjt */}
-            <div ref={sectionRefs.pjt} className="relative overflow-hidden w-full h-screen snap-start flex flex-col justify-center items-center " id="pjt">
+            <div ref={sectionRefs.pjt} className="relative overflow-hidden w-full h-screen snap-start flex flex-col items-center pt-28 md:pt-32" id="pjt">
                 <h1 className={`absolute top-20 left-4 text-[5rem] md:text-[7rem] font-extrabold text-black opacity-5 z-0 select-none pointer-events-none leading-none
                     ${activeSection === "pjt" ? "animate-slide-in-left" : "opacity-0"}
                 `}>
                     PROJECT
                 </h1>
-                <div className="absolute top-32 left-16 md:top-36 md:left-40 md:w-[90%] text-3xl md:text-4xl font-bold text-blue-500">
+                <div className="relative z-10 self-start ml-6 md:ml-24 text-3xl md:text-4xl font-bold text-blue-500 shrink-0">
                     PROJECT
                 </div>
-                <ProjectList/>
+                <div className="w-full flex-1 min-h-0 flex items-center justify-center">
+                    <ProjectList/>
+                </div>
             </div>
 
         </div>

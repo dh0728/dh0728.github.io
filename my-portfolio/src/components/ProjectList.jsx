@@ -61,7 +61,7 @@ const ProjectList = () => {
   ];
 
   return (
-    <div className="w-full h-full px-4m mt-60">
+    <div className="w-full h-full px-4m">
       <Swiper
         modules={[Pagination]}
         pagination={{ clickable: true }}

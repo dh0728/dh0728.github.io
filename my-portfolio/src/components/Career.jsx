@@ -7,8 +7,10 @@ const Career = () => {
   const education = [
         { date: "2024.07 ~ 2025.06" , content: "삼성 청년 SW 아카데미 12기 수료"},
         { date: "2024.02 ~ 2024.06" , content: "디지털스마트부산아카데미 SW전문인재양성 웹 개발 과정 수료"},
-        { date: "2018.03 ~ 2024.02" , content: "부경대학교 스마트헬스케어학부/의공학전공 졸업"},
-        { date: "2015.03 ~ 2018.02" , content: "울산 학성고등학교 졸업"},
+        // { date: "2018.03 ~ 2024.02" , content: "부경대학교 스마트헬스케어학부/의공학전공 졸업"},
+        // { date: "2015.03 ~ 2018.02" , content: "울산 학성고등학교 졸업"},
+        { date: "2018.03 ~ 2024.02" , content: "OO대학교 스마트헬스케어학부/의공학전공 졸업"},
+        { date: "2015.03 ~ 2018.02" , content: "OO OO고등학교 졸업"},
     ];
 
     const awards = [
@@ -17,14 +19,16 @@ const Career = () => {
         { date: "2025.06" , content: "2학기 자율 프로젝트 최우수상 - 삼성 청년 SW 아카데미"},
         { date: "2024.11" , content: "1학기 프로젝트 최우수상 - 삼성 청년 SW 아카데미"},
         { date: "2024.11" , content: "1학기 성적우수상 - 삼성 청년 SW 아카데미"},
-        { date: "2023.03" , content: "프로젝트 우수상 - 디지털스마트부산아카데미"},
-        { date: "2023.06" , content: "표창장 - 정보통신기획평가원"},
+        // { date: "2023.03" , content: "프로젝트 우수상 - 디지털스마트부산아카데미"},
+        // { date: "2023.06" , content: "표창장 - 정보통신기획평가원"},
     ]
 
     const qualifications = [
         { date: "2024.12" , content: "SQLD"},
         { date: "2025.10" , content: "AWS Certified Cloud Practitioner"},
-        { date: "2025.12" , content: "정보처리기사"}
+        { date: "2025.12" , content: "정보처리기사"},
+        { date: "2026.06" , content: "NAVER Cloud Platform Certified Associate"},
+        { date: "2026.07" , content: "NAVER Cloud Platform Certified Professional"}
     ]
 
     const language = [
@@ -35,14 +39,13 @@ const Career = () => {
     { title: "🎓 교육 수료", items: education },
     { title: "🏆 수상", items: awards },
     { title: "🪪 자격증", items: qualifications },
-    // { title: "🌐 어학", items: language },
-    { title: "", items: language },
+    { title: "🌐 어학", items: language },
   ];
 
   return (
-    <div className="w-[90%] h-[70%]">
+    <div className="w-[90%] h-full">
       {/* 모바일: 캐러셀 */}
-      <div className="md:hidden w-full h-full mt-16">
+      <div className="md:hidden w-full h-full">
         <Swiper
           modules={[Pagination]}
           pagination={{ clickable: true }}
@@ -53,8 +56,8 @@ const Career = () => {
           {sections.map((section, idx) => (
             <SwiperSlide key={idx}>
               <div className="p-6 rounded-xl bg-white shadow-md h-full flex flex-col">
-                <div className="text-2xl font-bold mb-4 text-[#3BA9F2]">{section.title}</div>
-                <div className="flex flex-col gap-4 overflow-y-auto">
+                <div className="text-2xl font-bold mb-4 text-[#3BA9F2] shrink-0">{section.title}</div>
+                <div className="flex flex-col gap-4 overflow-y-auto flex-1 min-h-0">
                   {section.items.map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <div className="w-[35%] min-w-[100px] bg-[#E6F4FE] text-[#005BAC] px-3 py-1 rounded-md font-semibold text-sm text-center shadow-sm">
@@ -73,11 +76,11 @@ const Career = () => {
       </div>
 
       {/* 태블릿/PC: 기존 2열 레이아웃 유지 */}
-      <div className="hidden md:flex flex-wrap justify-center gap-6 h-full mt-14">
+      <div className="hidden md:grid grid-cols-2 grid-rows-2 gap-6 h-full">
         {sections.map((section, idx) => (
-          <div key={idx} className="w-[45%] p-6 rounded-xl bg-white shadow-md h-auto">
-            <div className="text-2xl font-bold mb-4 text-[#3BA9F2]">{section.title}</div>
-            <div className="flex flex-col gap-4">
+          <div key={idx} className="p-6 rounded-xl bg-white shadow-md h-full min-h-0 flex flex-col">
+            <div className="text-2xl font-bold mb-4 text-[#3BA9F2] shrink-0">{section.title}</div>
+            <div className="flex flex-col gap-4 overflow-y-auto flex-1 min-h-0">
               {section.items.map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="w-[35%] min-w-[100px] bg-[#E6F4FE] text-[#005BAC] px-3 py-1 rounded-md font-semibold text-xs text-center shadow-sm">

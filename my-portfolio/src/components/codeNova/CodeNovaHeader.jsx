@@ -66,7 +66,7 @@ const CodeNovaHeader = () => {
 
                         </div>
                         <div>
-                            30%
+                            20%
                         </div>
                     </div>
 
