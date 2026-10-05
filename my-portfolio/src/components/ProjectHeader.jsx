@@ -1,129 +1,106 @@
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import logoImg from "../assets/images/logo.png";
-import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
-import { Menu, X } from "lucide-react"; // 햄버거, 닫기 아이콘
 
-const ProjectHeader = ({ onMoveToSection, sections }) => {
-  const navigate = useNavigate();
+const sectionLabels = { singleMode: "SINGLE MODE", codeReview: "CODE REVIEW", msa: "MSA", chating: "OPEN CHATTING", api: "API" };
+
+const ProjectHeader = ({ onMoveToSection, sections = [] }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const implementButtonRef = useRef(null);
+  const mobileButtonRef = useRef(null);
+  const mobileItems = ["header", "overview", ...sections, "review"];
+  const labelFor = (section) => sectionLabels[section] || section.toUpperCase();
 
-  const handleDropdownEnter = () => setShowDropdown(true);
-  const handleDropdownLeave = () => setShowDropdown(false);
+  useEffect(() => {
+    if (!showDropdown) return;
+    const closeOutside = (event) => {
+      if (!dropdownRef.current?.contains(event.target)) setShowDropdown(false);
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, [showDropdown]);
+
+  const moveTo = (section) => {
+    onMoveToSection(section);
+    if (showDropdown) implementButtonRef.current?.focus();
+    if (mobileMenuOpen) mobileButtonRef.current?.focus();
+    setShowDropdown(false);
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-md z-50 shadow-md">
-      <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-4">
-        {/* 로고 */}
-        <img
-          src={logoImg}
-          alt="로고이미지"
-          className="w-24 md:w-28 lg:w-40 cursor-pointer hover:scale-105 transition"
-          onClick={() => navigate("/")}
-        />
-
-        {/* PC/태블릿 메뉴 */}
-        <nav className="hidden md:flex items-center text-gray-800">
+    <header
+      className="fixed left-0 top-0 z-50 w-full bg-white/90 shadow-md backdrop-blur-md"
+      onKeyDown={(event) => {
+        if (event.key !== "Escape") return;
+        if (showDropdown) implementButtonRef.current?.focus();
+        if (mobileMenuOpen) mobileButtonRef.current?.focus();
+        setShowDropdown(false);
+        setMobileMenuOpen(false);
+      }}
+    >
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-8">
+        <Link to="/" aria-label="포트폴리오 홈으로 이동" className="shrink-0 rounded-md p-1">
+          <img src={logoImg} alt="" className="h-10 w-24 object-contain md:w-28 lg:w-40" />
+        </Link>
+        <nav aria-label="프로젝트 메뉴" className="hidden items-center gap-5 text-base font-bold text-gray-800 md:flex lg:gap-10 lg:text-xl">
+          {["header", "overview"].map((section) => (
+            <button key={section} type="button" onClick={() => moveTo(section)} className="min-h-[2.75rem] rounded-md hover:text-blue-500">
+              {labelFor(section)}
+            </button>
+          ))}
           <div
-            className="font-bold text-xl lg:text-2xl mr-6 lg:mr-12 cursor-pointer hover:text-[#3BA9F2] hover:scale-105 transition"
-            onClick={() => onMoveToSection('header')}
-          >
-            HEADER
-          </div>
-
-          <div
-            className="font-bold text-xl lg:text-2xl mr-6 lg:mr-12 cursor-pointer hover:text-[#3BA9F2] hover:scale-105 transition"
-            onClick={() => onMoveToSection('overview')}
-          >
-            OVERVIEW
-          </div>
-
-          <div
+            ref={dropdownRef}
             className="relative"
-            onMouseEnter={handleDropdownEnter}
-            onMouseLeave={handleDropdownLeave}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) setShowDropdown(false);
+            }}
           >
-            <div className="font-bold text-xl lg:text-2xl mr-6 lg:mr-12 cursor-pointer hover:text-[#3BA9F2] hover:scale-105 transition">
+            <button
+              ref={implementButtonRef}
+              type="button"
+              aria-expanded={showDropdown}
+              aria-controls="implement-menu"
+              onClick={() => setShowDropdown(!showDropdown)}
+              className="min-h-[2.75rem] rounded-md hover:text-blue-500"
+            >
               IMPLEMENT
-            </div>
+            </button>
             {showDropdown && (
-              <div className="absolute top-full left-0 bg-white shadow-md rounded-md px-4 py-2 space-y-2 z-50">
-                {sections?.map((section) => (
-                  <div
-                    key={section}
-                    className="text-base cursor-pointer hover:text-[#3BA9F2] transition"
-                    onClick={() => {
-                      onMoveToSection(section);
-                      setShowDropdown(false);
-                    }}
-                  >
-                    {section.toUpperCase()}
-                  </div>
+              <div id="implement-menu" className="absolute right-0 top-full min-w-[11rem] rounded-lg bg-white p-2 text-sm shadow-lg">
+                {sections.map((section) => (
+                  <button key={section} type="button" onClick={() => moveTo(section)} className="block min-h-[2.75rem] w-full whitespace-nowrap rounded-md px-3 text-left hover:bg-blue-50 hover:text-blue-500">
+                    {labelFor(section)}
+                  </button>
                 ))}
               </div>
             )}
           </div>
-
-          <div
-            className="font-bold text-xl lg:text-2xl cursor-pointer hover:text-[#3BA9F2] hover:scale-105 transition"
-            onClick={() => onMoveToSection('review')}
-          >
-            REVIEW
-          </div>
+          <button type="button" onClick={() => moveTo("review")} className="min-h-[2.75rem] rounded-md hover:text-blue-500">REVIEW</button>
         </nav>
-
-        {/* 모바일 메뉴 버튼 */}
-        <div className="md:hidden">
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-          </button>
-        </div>
+        <button
+          ref={mobileButtonRef}
+          type="button"
+          aria-label={mobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="project-mobile-menu"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="flex h-11 w-11 items-center justify-center rounded-md md:hidden"
+        >
+          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
-
-      {/* 모바일 메뉴 (슬라이드 다운) */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-md flex flex-col space-y-4 px-4 py-6">
-          <button
-            className="text-lg font-bold text-gray-800 hover:text-[#3BA9F2]"
-            onClick={() => {
-              onMoveToSection('header');
-              setMobileMenuOpen(false);
-            }}
-          >
-            HEADER
-          </button>
-          <button
-            className="text-lg font-bold text-gray-800 hover:text-[#3BA9F2]"
-            onClick={() => {
-              onMoveToSection('overview');
-              setMobileMenuOpen(false);
-            }}
-          >
-            OVERVIEW
-          </button>
-          {/* Implement 섹션 드롭다운 없이 한 번에 표시 */}
-          {sections?.map((section) => (
-            <button
-              key={section}
-              className="text-lg font-bold text-gray-800 hover:text-[#3BA9F2]"
-              onClick={() => {
-                onMoveToSection(section);
-                setMobileMenuOpen(false);
-              }}
-            >
-              {section.toUpperCase()}
+        <nav id="project-mobile-menu" aria-label="모바일 프로젝트 메뉴" className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-t bg-white px-4 py-3 md:hidden">
+          {mobileItems.map((section) => (
+            <button key={section} type="button" onClick={() => moveTo(section)} className="block min-h-[2.75rem] w-full rounded-md text-lg font-semibold hover:bg-blue-50 hover:text-blue-500">
+              {labelFor(section)}
             </button>
           ))}
-          <button
-            className="text-lg font-bold text-gray-800 hover:text-[#3BA9F2]"
-            onClick={() => {
-              onMoveToSection('review');
-              setMobileMenuOpen(false);
-            }}
-          >
-            REVIEW
-          </button>
-        </div>
+        </nav>
       )}
     </header>
   );

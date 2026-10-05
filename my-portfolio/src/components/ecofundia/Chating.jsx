@@ -2,18 +2,18 @@ import ChatingDescImg from "../../assets/images/chating_desc.png"
 
 const Chating = () => {
     return(
-                <div className="relative w-full h-[65%] flex flex-col md:flex-row flex-wrap justify-center gap-8 items-start mt-16 md:mt-28 lg:mt-40">
-                    
+                <div className="grid w-full min-w-0 gap-8 break-words lg:grid-cols-2 items-start">
+
                     {/* 프로젝트 정보 */}
-                    <div className="w-full md:w-[40%] h-full flex flex-col text-xs md:text-sm lg:text-base">
-                        
-                        <div className="w-full h-auto flex flex-col gap-2 ml-8 mt-8">
+                    <div className="w-full flex flex-col text-sm md:text-base leading-relaxed min-w-0">
+
+                        <div className="w-full h-auto flex flex-col gap-2 min-w-0">
                             <div className="text-sm md:text-base lg:text-lg font-bold">
                                 오픈 채팅 시스템
                             </div>
 
                             <div className="flex flex-col w-full gap-2 mt-2">
-                                <ul className=" ml-5 space-y-1 text-sm leanding-relaxed">
+                                <ul className="ml-5 space-y-1 text-sm leading-relaxed">
                                     <li>- Kafka와 STOMP를 활용하여 펀딩 상품별 오픈 채팅방 기능 구현</li>
                                     <li>- 채팅 메시지를 메모리 버퍼에 저장 후 일정 조건 시 MongoDB에 일괄 저장</li>
                                     <li>- 메시지 유실 방지 및 저장 효율성을 고려한 버퍼링 + 스케줄러 구조 설계</li>
@@ -21,13 +21,13 @@ const Chating = () => {
                             </div>
                         </div>
 
-                        <div className="w-full h-auto flex flex-col gap-2 ml-8 mt-8">
+                        <div className="w-full h-auto flex flex-col gap-2 min-w-0">
                             <div className="text-sm md:text-base lg:text-lg font-bold">
                                 설명
                             </div>
 
-                            <div className="flex flex-col w-[80%] gap-2 mt-2">
-                                <ul className=" ml-5 space-y-1 leanding-relaxed">
+                            <div className="flex flex-col w-full gap-2 mt-2 min-w-0">
+                                <ul className="ml-5 space-y-1 leading-relaxed">
                                     <li>- 실시간 채팅 메시지는 Kafka를 통해 비동기적으로 처리하여,메시지 수신 로직과 후단 처리 로직을 분리하였습니다.</li>
                                     <li>- Kafka 토픽을 펀딩 상품 단위로 분리하여 채팅방 간 메시지 분리를 명확히 하고, 병렬 처리 확장을 고려한 구조로 구성하였습니다.</li>
                                     <li>- 채팅 메시지는 MongoDB에 즉시 저장하지 않고, 메모리 버퍼에 임시 적재한 뒤 일괄 저장하는 방식을 적용했습니다.</li>
@@ -37,14 +37,14 @@ const Chating = () => {
                             </div>
                         </div>
                     </div>
-        
-                    <div className="w-full md:w-[50%] flex h-full items-center justify-center mt-4">
-                        <img src={ChatingDescImg} alt="채팅설명" 
+
+                    <div className="w-full flex items-center justify-center min-w-0">
+                        <img src={ChatingDescImg} alt="채팅설명"
                             className="w-[80%]"
                         />
 
                     </div>
-                    
+
                 </div>
             )
 }

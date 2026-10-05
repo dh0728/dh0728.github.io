@@ -3,18 +3,18 @@ import KeullagPlaceImg from "../../assets/images/keullagPlace.jpg";
 
 const Api = () => {
     return(
-                <div className="relative w-full h-[65%] flex flex-wrap justify-center gap-8 items-start mt-16 md:mt-28 lg:mt-40">
-                    
+                <div className="grid w-full min-w-0 gap-8 break-words lg:grid-cols-2 items-start">
+
                     {/* 프로젝트 정보 */}
-                    <div className="w-full md:w-[40%] h-full flex flex-col gap-8 text-xs md:text-sm lg:text-base">
-                        
-                        <div className="w-full h-auto flex flex-col gap-2 ml-8 mt-8">
+                    <div className="w-full flex flex-col gap-8 text-sm md:text-base leading-relaxed min-w-0">
+
+                        <div className="w-full h-auto flex flex-col gap-2 min-w-0">
                             <div className="text-sm md:text-base lg:text-lg font-bold">
                                 클라이밍장 조회, 기록 통계, 기록 저장 API 구현
                             </div>
 
                             <div className="flex flex-col w-full gap-2 mt-2">
-                                <ul className=" ml-5 space-y-1 text-sm leanding-relaxed">
+                                <ul className="ml-5 space-y-1 text-sm leading-relaxed">
                                     <li>- 클라이밍장 조회 API 구현</li>
                                     <li>- 클라이밍장 상세 정보 조회 API 구현</li>
                                     <li>- 클라이밍 기록 통계 API 구현(년, 월, 주)</li>
@@ -23,13 +23,13 @@ const Api = () => {
                             </div>
                         </div>
 
-                        <div className="w-full h-auto flex flex-col gap-2 ml-8">
+                        <div className="w-full h-auto flex flex-col gap-2 min-w-0">
                             <div className="text-xl font-bold">
                                 설명
                             </div>
 
-                            <div className="flex flex-col w-[80%] gap-2 mt-2">
-                                <ul className=" ml-5 space-y-1 text-sm leanding-relaxed">
+                            <div className="flex flex-col w-full gap-2 mt-2 min-w-0">
+                                <ul className="ml-5 space-y-1 text-sm leading-relaxed">
                                     <li>- 클라이밍장 조회 시 현재 위치에서 가까운 순으로 조회되도록 구현하였습니다.</li>
                                     <li>- Redis 캐싱을 통해 조회 성능을 최적화 하였습니다.</li>
                                     <li>- 클라이밍 기록은 날짜 단위로 그룹화되어 주간/월간/연간 단위의 통계를 제공합니다.</li>
@@ -38,18 +38,18 @@ const Api = () => {
                             </div>
                         </div>
                     </div>
-        
-                    <div className="w-full md:w-[40%] flex h-full items-center justify-center gap-4">
-                        <img src={KeullagPlaceImg} alt="클라이밍장" 
-                            className="rounded-2xl w-[35%] h-full"
+
+                    <div className="w-full flex items-center justify-center gap-4 min-w-0">
+                        <img src={KeullagPlaceImg} alt="클라이밍장"
+                            className="h-auto max-h-[36rem] w-[40%] rounded-2xl object-contain"
                         />
-                        <img src={KeullagRecordImg} alt="기록" 
-                            className="rounded-2xl w-[35%] h-full"
+                        <img src={KeullagRecordImg} alt="기록"
+                            className="h-auto max-h-[36rem] w-[40%] rounded-2xl object-contain"
                         />
 
 
                     </div>
-                    
+
                 </div>
             )
 }

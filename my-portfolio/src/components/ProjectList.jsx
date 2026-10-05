@@ -1,18 +1,16 @@
 import Project from "./Project";
-import { useNavigate } from "react-router-dom";
 
 import codeNovaImg from "../assets/images/codenova_img.png";
 import keullagImg from "../assets/images/climb_img.png";
-import storeBookImg from "../assets/images/storeBook.png";
+// import storeBookImg from "../assets/images/storeBook.png";
 import ecoFundiaImg from "../assets/images/ecofundia_img.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { A11y, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
 const ProjectList = () => {
-  const navigate = useNavigate();
 
   const pjts = [
     {
@@ -48,22 +46,22 @@ const ProjectList = () => {
       info: "개발자를 꿈꾸는 사람들이 자연스럽게 몰입하고 성장할 수 있는 실전형 코딩 감각 훈련 플랫폼",
       path: "/codenova",
     },
-    {
-      title: "가계북",
-      content: "영수증 한 장으로 끝내는 금융 생활",
-      img: storeBookImg,
-      tools: ["Django", "Python", "LangChain", "SQLite"],
-      myFunc: ["BE 개발", "카드추천기능", "DB 설계", "데이터 크롤링"],
-      date: "2025.11.18 ~ 2025.04.11.27",
-      info: "소비 내역을 쉽게 입력하고 소비내역에 따른 카드를 추천받을 수 있는 플랫폼",
-      path: "/storebook",
-    },
+    // {
+    //   title: "가계북",
+    //   content: "영수증 한 장으로 끝내는 금융 생활",
+    //   img: storeBookImg,
+    //   tools: ["Django", "Python", "LangChain", "SQLite"],
+    //   myFunc: ["BE 개발", "카드추천기능", "DB 설계", "데이터 크롤링"],
+    //   date: "2025.11.18 ~ 2025.04.11.27",
+    //   info: "소비 내역을 쉽게 입력하고 소비내역에 따른 카드를 추천받을 수 있는 플랫폼",
+    //   path: "/storebook",
+    // },
   ];
 
   return (
-    <div className="w-full h-full px-4m">
+    <div className="w-full min-w-0">
       <Swiper
-        modules={[Pagination]}
+        modules={[A11y, Pagination]}
         pagination={{ clickable: true }}
         spaceBetween={20}
         breakpoints={{
@@ -71,7 +69,8 @@ const ProjectList = () => {
           768: { slidesPerView: 2 },     // 태블릿
           1024: { slidesPerView: 3 },    // 데스크탑
         }}
-        className="w-[80%] h-[90%]"
+        className="portfolio-carousel w-full"
+        a11y={{ containerMessage: "프로젝트 목록", paginationBulletMessage: "프로젝트 목록 {{index}}번 슬라이드로 이동" }}
       >
         {pjts.map((item, idx) => (
           <SwiperSlide key={idx}>
@@ -80,11 +79,9 @@ const ProjectList = () => {
               title={item.title}
               content={item.content}
               team={item.team}
-              tools={item.tools}
               myFunc={item.myFunc}
               date={item.date}
-              info={item.info}
-              onClick={() => navigate(item.path)}
+              path={item.path}
             />
           </SwiperSlide>
         ))}

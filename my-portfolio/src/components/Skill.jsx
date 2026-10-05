@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { A11y, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -17,7 +17,7 @@ import CSS3 from '../assets/images/CSS3.png';
 import ReactImg from '../assets/images/React.png';
 import Vue from '../assets/images/Vue.js.png';
 import Tailwind from '../assets/images/Tailwind_CSS.png';
-import VscodeImg from '../assets/images/VSCode.png';
+import VscodeImg from '../assets/images/VScode.png';
 import PyCharmImg from '../assets/images/PyCharm.png';
 import IntelliJImg from '../assets/images/IntelliJ.png';
 import GitHubImg from '../assets/images/GitHub.png';
@@ -67,9 +67,9 @@ const Skill = () => {
   ];
 
   return (
-    <div className="w-[90%] h-auto">
+    <div className="w-full min-w-0">
       <Swiper
-        modules={[Pagination]}
+        modules={[A11y, Pagination]}
         pagination={{ clickable: true }}
         spaceBetween={20}
         breakpoints={{
@@ -77,17 +77,18 @@ const Skill = () => {
           768: { slidesPerView: 2 },     // 태블릿: 2개씩
           1024: { slidesPerView: 3 },    // PC: 3개씩
         }}
-        className="w-full "
+        className="portfolio-carousel w-full"
+        a11y={{ containerMessage: "기술 목록", paginationBulletMessage: "기술 목록 {{index}}번 슬라이드로 이동" }}
       >
         {skills.map((section, idx) => (
           <SwiperSlide key={idx}>
-            <div className="flex flex-col items-center p-8  bg-white h-full border-2 rounded-2xl shadow-xl cursor-pointer">
+            <div className="flex h-full min-w-0 flex-col items-center rounded-2xl border-2 bg-white p-5 shadow-md sm:p-8">
               <div className="text-2xl font-bold mb-6 text-center">{section.title}</div>
-              <div className={`grid ${section.list.length > 2 ? "grid-cols-2" : "grid-cols-1"} gap-6 place-items-center p-4`}>
+              <div className={`grid w-full ${section.list.length > 2 ? "grid-cols-2" : "grid-cols-1"} gap-6 place-items-center py-4`}>
                 {section.list.map((tool, j) => (
                   <div key={j} className="flex flex-col items-center">
                     <img src={tool.icon} alt={tool.name} className="w-10 h-10 object-contain" />
-                    <div className="text-sm mt-1 font-semibold">{tool.name}</div>
+                    <div className="mt-1 text-center text-sm font-semibold">{tool.name}</div>
                   </div>
                 ))}
               </div>

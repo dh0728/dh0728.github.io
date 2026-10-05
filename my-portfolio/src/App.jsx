@@ -3,7 +3,7 @@ import MainPage from './pages/MainPage'
 import "./index.css";
 import CodeNovaPage from './pages/codeNova/codeNovaPage';
 import EcofundiaPage from './pages/ecofundia/EcofundiaPage';
-import KeullagPage from './pages/keullag/keullagPage';
+import KeullagPage from './pages/keullag/KeullagPage';
 
 function App() {
 

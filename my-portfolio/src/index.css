@@ -19,7 +19,50 @@ body {
   scrollbar-width: none;
 }
 
-/* 전역 스타일 (예: index.css나 App.css) */
-.swiper-pagination {
-  bottom: -5px !important;  /* 점을 더 아래로 */
+@layer base {
+  :focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+  }
+}
+
+.portfolio-carousel.swiper {
+  padding: 4px 4px 40px;
+}
+
+.portfolio-carousel .swiper-slide {
+  height: auto;
+}
+
+.portfolio-carousel .swiper-pagination {
+  bottom: 0;
+}
+
+.portfolio-carousel .swiper-pagination-bullet {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin: 0 2px !important;
+  background: transparent;
+  opacity: 1;
+}
+
+.portfolio-carousel .swiper-pagination-bullet::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  background: #94a3b8;
+}
+
+.portfolio-carousel .swiper-pagination-bullet-active::after {
+  background: #3b82f6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
