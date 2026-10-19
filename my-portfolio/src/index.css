@@ -298,12 +298,20 @@ body {
 .project-review__lesson h4 { display: flex; align-items: center; gap: 8px; color: #2563eb; font-size: 13px; font-weight: 700; }
 .project-review__next { display: flex; align-items: baseline; gap: 16px; margin-top: 24px; padding-top: 18px; border-top: 1px solid #e5eaf1; color: #637286; font-size: 12px; line-height: 1.8; }
 .project-review__next > span { flex-shrink: 0; color: #334155; font-weight: 700; }
-.project-review__reflections { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.project-review__reflection { min-width: 0; padding: 28px; border: 1px solid #dce6f2; border-radius: 20px; background: #f6f8fc; }
+.project-review__reflections { display: grid; min-width: 0; gap: 24px; }
+.project-review__reflection { min-width: 0; }
+.project-review__reflection + .project-review__reflection { padding-top: 20px; border-top: 1px solid #dce6f2; }
 .project-review__reflection h4 { display: flex; align-items: center; gap: 8px; color: #2563eb; font-size: 14px; font-weight: 700; }
 .project-review__reflection h4 svg { flex-shrink: 0; }
-.project-review__reflection h5 { margin-top: 20px; font-size: 20px; font-weight: 700; line-height: 1.5; }
-.project-review__reflection p { margin-top: 12px; color: #526174; font-size: 15px; line-height: 1.85; }
+.project-review__reflection h5 { margin-top: 10px; font-size: 18px; font-weight: 700; line-height: 1.5; }
+.project-review__reflection p { margin-top: 8px; color: #526174; font-size: 14px; line-height: 1.8; }
+.review-growth { margin-top: 24px; }
+.review-growth__path { display: grid; grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr) 20px minmax(0, 1fr); align-items: center; gap: 10px; margin-top: 12px; }
+.review-growth__next { display: flex; align-items: flex-start; gap: 12px; margin-top: 24px; padding: 18px; border: 1px dashed #b7d0f2; border-radius: 12px; background: #fff; }
+.review-growth__next > svg { flex-shrink: 0; color: #2563eb; }
+.review-growth__next strong { display: block; margin-top: 6px; font-size: 14px; line-height: 1.6; }
+.review-growth__next ul { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.review-growth__next li { padding: 4px 8px; border-radius: 5px; background: #f0f5fc; color: #47617e; font-size: 11px; }
 
 .review-step-label { color: #637286; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; }
 .review-flow-arrow { flex-shrink: 0; color: #8297b3; }
@@ -354,8 +362,6 @@ body {
   .project-review__visual { padding: 18px; }
   .project-review__intro { margin-bottom: 22px; }
   .project-review__contributions { gap: 18px; }
-  .project-review__reflections { grid-template-columns: minmax(0, 1fr); gap: 16px; }
-  .project-review__reflection { padding: 22px; }
   .project-phone-gallery { gap: 12px; }
   .project-review__next { gap: 12px; }
   .review-cache__branches { margin-left: 12%; }
@@ -367,6 +373,13 @@ body {
   .review-feedback__comparison { grid-template-columns: minmax(0, 1fr); }
   .review-feedback__comparison > .review-flow-arrow { margin-inline: auto; transform: rotate(90deg); }
   .review-cache__before { align-items: flex-start; flex-direction: column; gap: 8px; }
+}
+
+@media (max-width: 1023px) and (min-width: 768px), (max-width: 479px) {
+  .review-growth__path { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .review-growth__path > .review-flow-arrow { justify-self: center; transform: rotate(90deg); }
+  .review-growth__path .review-flow-node { flex-direction: row; flex-wrap: wrap; gap: 8px 10px; padding: 12px; }
+  .review-growth__path .review-flow-node > span { flex-basis: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
