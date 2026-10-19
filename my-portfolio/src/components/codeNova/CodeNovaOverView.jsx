@@ -1,79 +1,27 @@
+import { Gamepad2, Swords, Sparkles, ShieldCheck } from "lucide-react";
 import archImg from "../../assets/images/arch.png";
 import multImg from "../../assets/images/mult.png";
 import meteoImg from "../../assets/images/meteo.png";
+import ProjectOverview from "../ProjectOverview";
+import ProjectFigure from "../ProjectFigure";
 
-const CodeNovaOverView = () => {
-
-        return(
-            <div className="grid w-full min-w-0 gap-8 break-words lg:grid-cols-2 items-start">
-
-                {/* 프로젝트 정보 */}
-                <div className="w-full flex flex-col gap-8 text-sm md:text-base leading-relaxed min-w-0">
-
-                    <div className="w-full flex flex-col gap-2 min-w-0">
-                        <div>
-                            요즘 개발 환경은 자동완성, 코드 포맷팅, AI 힌트에 많이 의존합니다. 하지만 이러한 도구에 익숙해질수록
-                            스스로 생각하고 코드를 손으로 익히는 감각은 점점 줄어듭니다. 때문에 저희는 단순히 도구에 의존하는 것이 아닌
-                            직접 타이핑을 통해 코딩 감각을 기르는 플랫폼을 만들고자 했습니다.
-                        </div>
-
-                    {/* 구현 기능 */}
-                    <div className="flex flex-col w-full gap-2 mt-4">
-                        <ul className="list-none ml-5 space-y-1 leading-relaxed">
-                            <li>
-                                <strong>🎮 싱글 모드</strong>
-                                <ul className="list-none ml-4 space-y-1">
-                                  <li>- 혼자서 타이핑 실력을 기를 수 있는 기본 모드</li>
-                                  <li>- 실제 문법 기반 코드 타이핑 → 결과 자동 랭킹 등록</li>
-                                  <li>- 코드 복습 기능 + AI 챗봇을 통한 코드 해설 제공</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>⚔️ 멀티 모드</strong>
-                                <ul className="list-none ml-4 space-y-1">
-                                  <li>- 2~4인이 함께 즐기는 실시간 코드 배틀</li>
-                                  <li>- 동일한 문제를 타이핑하며 정확도 + 속도로 승부</li>
-                                  <li>- 경쟁을 통한 코딩 실력 향상</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>☄️ 유성 모드</strong>
-                                <ul className="list-none ml-4 space-y-1">
-                                  <li>- 최대 4인 팀이 되어 하늘에서 떨어지는 단어를 막는 협동 콘텐츠</li>
-                                  <li>- 역할 분담 및 협업 타이핑 → 집중력과 팀워크 강화</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>🔐 보안 & 공정성 기능</strong>
-                                <ul className="list-none ml-4 space-y-1">
-                                  <li>- 매크로 방지 키로그 분석, 포커스 감지 및 모니터링</li>
-                                  <li>- 공정한 랭킹 시스템을 위한 비정상 입력 탐지 로직 적용</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                    </div>
-                </div>
-
-                <div className="w-full flex items-center justify-center min-w-0">
-                    <img src={archImg} alt="아키텍처"
-                        className="rounded-2xl w-[40%] md:w-[35%] h-auto"
-                    />
-
-                    {/* 화면 이미지들 */}
-                    <div className="w-[40%] flex flex-col p-2 gap-2">
-                        <img src={multImg} alt="아키텍처"
-                        className="rounded-2xl w-full h-auto"
-                        />
-                        <img src={meteoImg} alt="아키텍처"
-                            className="rounded-2xl w-full h-auto"
-                        />
-                    </div>
-                </div>
-
-            </div>
-        )
-}
+const CodeNovaOverView = () => (
+  <ProjectOverview
+    title="직접 타이핑하며 익히는 코딩 감각"
+    description="자동완성·코드 포맷팅·AI 힌트에 익숙한 개발 환경에서, 스스로 생각하고 코드를 손으로 익힐 수 있도록 기획했습니다."
+    features={[
+      { title: "싱글 모드", icon: Gamepad2, items: ["실제 문법 기반 코드를 혼자 타이핑하고 결과를 랭킹에 자동 등록", "코드 복습과 AI 챗봇 해설로 학습 연결"] },
+      { title: "멀티 모드", icon: Swords, items: ["2~4인이 같은 문제로 겨루는 실시간 코드 배틀", "정확도·속도 경쟁으로 타이핑 실력 향상"] },
+      { title: "유성 모드", icon: Sparkles, items: ["최대 4인이 떨어지는 단어를 막는 협동 콘텐츠", "역할 분담과 협업 타이핑으로 집중력·팀워크 강화"] },
+      { title: "보안과 공정성", icon: ShieldCheck, items: ["매크로 방지를 위한 키로그 분석·포커스 감지·모니터링", "비정상 입력 탐지로 공정한 랭킹 관리"] },
+    ]}
+  >
+    <ProjectFigure src={archImg} alt="CodeNova 전체 시스템 아키텍처" caption="시스템 구조 · 클라이언트, 서버, 데이터 저장소 연결" />
+    <div className="project-overview__screens">
+      <ProjectFigure src={multImg} alt="CodeNova 멀티 모드 화면" caption="멀티 모드 · 실시간 코드 배틀" />
+      <ProjectFigure src={meteoImg} alt="CodeNova 유성 모드 화면" caption="유성 모드 · 함께 즐기는 협동 타이핑" />
+    </div>
+  </ProjectOverview>
+);
 
 export default CodeNovaOverView;

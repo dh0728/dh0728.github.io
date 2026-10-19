@@ -1,156 +1,28 @@
 import EcofundiaMainImg from "../../assets/images/EcofundiaMain.png";
-import ChatingImg from "../../assets/images/chating.jpg"
-import {
-  Calendar,
-  Users,
-  UserCog,
-  BarChart3,
-  Code,
-  Github,
-  Youtube,
-  Link,
-  UserCheck
-} from "lucide-react";
+import ChatingImg from "../../assets/images/chating.jpg";
+import ProjectIntro from "../ProjectIntro";
+import ProjectFigure from "../ProjectFigure";
 
-const EcofundiaHeader = () => {
-
-    const tech = ["Spring" , "JAVA", "Kafka", "MySQL", "Redis" , "MongoDB"]
-
-    return(
-        <div className="grid w-full min-w-0 gap-8 break-words xl:grid-cols-2 xl:items-center">
-
-            {/* 프로젝트 정보 */}
-            <div className="grid w-full min-w-0 gap-8 text-sm leading-relaxed sm:grid-cols-2">
-
-                <div className="w-full flex flex-col gap-2 min-w-0">
-
-                    {/* 개발기간 */}
-                    <div className="flex w-full items-center gap-2">
-                        <div className="flex shrink-0 items-center gap-2">
-                            <Calendar className="w-4 h-4 text-blue-500 shrink-0"/>
-                            <span className="text-blue-500 text-sm"> 기간 :</span>
-                        </div>
-                        <div>
-                            2025.02.24 ~ 2025.04.11
-                        </div>
-                    </div>
-
-                    {/* 개발인원 */}
-                    <div className="flex w-full items-center gap-2">
-                        <div className="flex shrink-0 items-center gap-2">
-                            <Users className="w-4 h-4 text-blue-500 shrink-0" />
-                            <span className="text-blue-500 text-sm"> 인원 :</span>
-                        </div>
-                        <div>
-                            6인 프로젝트
-                        </div>
-                    </div>
-
-                    {/* 역할 */}
-                    <div className="flex w-full items-center gap-2">
-                        <div className="flex shrink-0 items-center gap-2">
-                            <UserCog className="w-4 h-4 text-blue-500 shrink-0" />
-                            <span className="text-blue-500 text-sm"> 역할 :</span>
-                        </div>
-                        <div>
-                            Backend
-                        </div>
-                    </div>
-
-                    {/* 기여도 */}
-                    <div className="flex w-full items-center gap-2">
-                        <div className="flex shrink-0 items-center gap-2">
-                            <BarChart3 className="w-4 h-4 text-blue-500 shrink-0" />
-                            <span className="text-blue-500 text-sm"> 기여도 :</span>
-
-                        </div>
-                        <div>
-                            20%
-                        </div>
-                    </div>
-
-                    {/* 기여도 */}
-                    <div className="flex w-full gap-2">
-                        <Code className="w-4 h-4 text-blue-500 shrink-0" />
-                        <div className="flex flex-wrap gap-2">
-                            {tech.map((item, idx) => (
-                            <span className="bg-blue-200 text-blue-800 px-2 py-1 rounded-full text-xs shadow-sm" key={idx}>
-                                {item}
-                            </span>
-                        ))}
-                        </div>
-
-                    </div>
-
-                    {/* 깃헙레포 */}
-                    <div className="flex w-full items-center gap-2">
-                        <Link className="w-4 h-4 text-blue-500 shrink-0" />
-                        <a href="https://github.com/dh0728/EcoFundia"
-                            className="flex items-center justify-center gap-2 w-auto px-2 py-1 bg-gray-300 rounded-xl shadow-sm hover:shadow-md hover:bg-gray-500 transition"
-                        >
-                            <Github className="w-4 h-4 shrink-0" />
-                            <span className="text-xs md:text-base">깃헙</span>
-                        </a>
-                        <a href="https://youtu.be/caPTGYGb8qg"
-                            className="flex items-center justify-center gap-2 w-auto px-2 py-1 bg-red-200 rounded-xl shadow-sm hover:shadow-md hover:bg-red-300 transition"
-                        >
-                            <Youtube className="w-4 h-4 text-red-500 shrink-0" />
-                            <span className="text-red-600 text-xs md:text-base"> 영상</span>
-
-
-                        </a>
-                    </div>
-                </div>
-                {/* 구현 기능 */}
-                <div className="flex flex-col w-full gap-2 min-w-0">
-
-                    <div className="w-full flex items-center gap-2">
-                        <UserCheck className="w-4 h-4 text-blue-500 shrink-0"/>
-                        <span className="text-blue-500 text-xs md:text-base">구현기능 :</span>
-                    </div>
-
-                    <ul className="list-none ml-5 space-y-1 text-sm leading-relaxed">
-                        <li>
-                            <strong>MSA 아키텍처 설계</strong>
-                            <ul className="list-none ml-4 space-y-1">
-                              <li>- 도메인 단위로 서비스 분리</li>
-                              <li>- Client, Application, Data</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>화면 렌더링 API</strong>
-                            <ul className="list-none ml-4 space-y-1">
-                              <li>- 펀딩 상품 리스트 조회 api 구현</li>
-                              <li>- 5개씩 상품을 페이지네이션</li>
-                              <li>- 펀딩 상품 상세 페이지 api 구현</li>
-                              <li>- 판매자 상세정보 api 구현</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>펀딩 상품 오픈채팅</strong>
-                            <ul className="list-none ml-4 space-y-1">
-                              <li>- 관심 있는 유저 간 소통을 위한 채팅방 구현</li>
-                              <li>- 참여한 채팅방 목록 조회 및 재입장 기능 지원</li>
-                              <li>- STOMP + Kafka 기반의 오픈채팅 시스템 구축</li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-
-            </div>
-
-            <div className="w-full flex items-center justify-center gap-4 min-w-0">
-                <img src={EcofundiaMainImg} alt="ecofundia이미지"
-                    className="h-auto max-h-[36rem] w-[40%] rounded-2xl object-contain"
-                />
-                <img src={ChatingImg} alt="ecofundia이미지"
-                    className="h-auto max-h-[36rem] w-[40%] rounded-2xl object-contain"
-                />
-            </div>
-
-        </div>
-    )
-}
+const EcofundiaHeader = () => (
+  <ProjectIntro
+    title="서비스 구조와 실시간 소통을 설계"
+    period="2025.02.24 ~ 2025.04.11"
+    role="Backend"
+    contribution="20%"
+    tech={["Spring", "Java", "Kafka", "MySQL", "Redis", "MongoDB"]}
+    github="https://github.com/dh0728/EcoFundia"
+    video="https://youtu.be/caPTGYGb8qg"
+    responsibilities={[
+      { title: "MSA 아키텍처 설계", items: ["도메인 단위로 서비스 분리", "Client·Application·Data 계층 구성"] },
+      { title: "화면 렌더링 API", items: ["펀딩 상품 목록 조회·5개씩 페이지네이션", "펀딩 상품 상세·판매자 상세정보 API"] },
+      { title: "펀딩 상품 오픈채팅", items: ["관심 있는 사용자 간 소통을 위한 채팅방", "참여한 채팅방 목록 조회·재입장", "STOMP + Kafka 기반 오픈채팅 시스템"] },
+    ]}
+  >
+    <div className="project-phone-gallery">
+      <ProjectFigure src={EcofundiaMainImg} alt="Ecofundia 펀딩 메인 화면" caption="펀딩 메인" portrait />
+      <ProjectFigure src={ChatingImg} alt="Ecofundia 오픈채팅 화면" caption="상품별 오픈채팅" portrait />
+    </div>
+  </ProjectIntro>
+);
 
 export default EcofundiaHeader;
