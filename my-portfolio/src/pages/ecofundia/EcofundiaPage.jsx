@@ -7,7 +7,7 @@ import Chating from "../../components/ecofundia/Chating";
 import EcofundiaReview from "../../components/ecofundia/EcofundiaReview";
 
 const sections = [
-  { id: "header", label: "HEADER", title: "Ecofundia", subtitle: "친환경 크라우드 펀딩 플랫폼", content: <EcofundiaHeader /> },
+  { id: "header", label: "HEADER", title: "Ecofundia", subtitle: "친환경 크라우드 펀딩 플랫폼", className: "project-header-section", content: <EcofundiaHeader /> },
   { id: "overview", label: "OVERVIEW", title: "OVERVIEW", content: <EcofundiaOverView /> },
   { id: "msa", label: "MSA", title: "MSA", content: <MsaArch /> },
   { id: "chating", label: "OPEN CHATTING", title: "OPEN CHATTING", content: <Chating /> },

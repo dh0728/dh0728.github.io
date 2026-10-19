@@ -149,8 +149,8 @@ body {
 .project-intro__visual { min-width: 0; }
 .project-intro__visual .project-phone-gallery { max-width: 440px; }
 .project-intro__work { margin-top: 36px; padding-top: 26px; border-top: 1px solid #dce6f2; }
-.project-intro__work > .project-eyebrow { margin-bottom: 6px; }
-.project-intro__work > h3 { font-size: 18px; font-weight: 700; }
+.project-intro__work-heading > .project-eyebrow { margin-bottom: 6px; }
+.project-intro__work-heading > h3 { font-size: 18px; font-weight: 700; }
 .project-intro__responsibilities { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 32px; margin-top: 22px; }
 .project-intro__responsibilities--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .project-intro__responsibilities > li { min-width: 0; padding-top: 16px; border-top: 1px solid #e5eaf1; }
@@ -159,6 +159,38 @@ body {
 .project-intro__work-title h4 { font-size: 15px; font-weight: 700; }
 .project-intro__responsibilities > li > ul { display: grid; gap: 5px; margin-top: 10px; padding-left: 15px; list-style: disc; color: #526174; font-size: 13px; line-height: 1.8; }
 .project-intro__responsibilities > li > ul > li::marker { color: #a5bbd8; }
+
+/* Keep project introductions within a laptop viewport without clipping content. */
+@media (min-width: 1024px) {
+  section.project-header-section { padding-top: 100px; padding-bottom: 24px; }
+  .project-header-section .section-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-bottom: 20px; }
+  .project-header-section .section-heading > span { top: -16px; font-size: 52px; }
+  .project-header-section .section-heading > h2 { font-size: 30px; line-height: 1.2; }
+  .project-header-section .section-heading > p { margin-top: 0; font-size: 14px; }
+  .project-intro__main { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 32px; }
+  .project-intro__info { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+  .project-intro__info > .project-eyebrow { grid-column: 1 / -1; margin-bottom: 6px; }
+  .project-intro__info > h3 { grid-column: 1 / -1; font-size: 24px; }
+  .project-intro__facts { grid-column: 1 / -1; grid-template-columns: 2fr 1fr 1fr 0.7fr; gap: 12px; margin-top: 14px; padding-block: 12px; }
+  .project-intro__facts > div:first-child { grid-column: auto; }
+  .project-intro__facts dd { margin-top: 5px; }
+  .project-intro__info .project-tech-list { grid-column: 1; grid-row: 4; align-self: center; gap: 6px; margin-top: 12px; padding-right: 12px; }
+  .project-intro__links { grid-column: 2; grid-row: 4; align-self: center; gap: 8px; margin-top: 12px; }
+  .project-intro__links a { padding-inline: 12px; }
+  .project-intro__awards { grid-column: 1 / -1; display: flex; align-items: center; gap: 16px; margin-top: 12px; padding: 8px 12px; }
+  .project-intro__awards h4 { flex-shrink: 0; }
+  .project-intro__awards ul { margin-top: 0; }
+  .project-intro__visual .project-figure__button > img { max-height: clamp(210px, 32svh, 320px); }
+  .project-intro__visual .project-figure > figcaption { margin-top: 6px; }
+  .project-intro__visual .project-phone-gallery { max-width: clamp(270px, 38svh, 360px); gap: 16px; }
+  .project-intro__work { margin-top: 20px; padding-top: 16px; }
+  .project-intro__work-heading { display: flex; align-items: baseline; gap: 12px; }
+  .project-intro__work-heading > .project-eyebrow { margin-bottom: 0; }
+  .project-intro__responsibilities { gap: 12px 28px; margin-top: 12px; }
+  .project-intro__responsibilities--four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .project-intro__responsibilities > li { padding-top: 8px; }
+  .project-intro__responsibilities > li > ul { gap: 3px; margin-top: 6px; line-height: 1.65; }
+}
 
 .project-overview__intro { margin-bottom: 30px; }
 .project-overview__intro > p:last-child { max-width: 880px; margin-top: 12px; color: #526174; font-size: 15px; line-height: 1.8; }

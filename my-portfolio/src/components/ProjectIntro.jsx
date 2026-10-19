@@ -15,12 +15,15 @@ const ProjectIntro = ({ title, period, role, contribution, tech, awards = [], gi
           <p className="project-eyebrow">PROJECT INFO</p>
           <h3>{title}</h3>
           <dl className="project-intro__facts">
-            {facts.map(({ label, value, icon: Icon }) => (
-              <div key={label}>
-                <dt><Icon size={16} aria-hidden="true" />{label}</dt>
-                <dd>{value}</dd>
-              </div>
-            ))}
+            {facts.map((fact) => {
+              const { label, value, icon: Icon } = fact;
+              return (
+                <div key={label}>
+                  <dt><Icon size={16} aria-hidden="true" />{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              );
+            })}
           </dl>
           <ul className="project-tech-list" aria-label="사용 기술">
             {tech.map((item) => <li key={item}>{item}</li>)}
@@ -39,8 +42,10 @@ const ProjectIntro = ({ title, period, role, contribution, tech, awards = [], gi
         <div className="project-intro__visual">{children}</div>
       </div>
       <div className="project-intro__work">
-        <p className="project-eyebrow">MY CONTRIBUTION</p>
-        <h3>담당한 기능</h3>
+        <div className="project-intro__work-heading">
+          <p className="project-eyebrow">MY CONTRIBUTION</p>
+          <h3>담당한 기능</h3>
+        </div>
         <ol className={`project-intro__responsibilities ${responsibilities.length === 4 ? "project-intro__responsibilities--four" : ""}`}>
           {responsibilities.map((item, index) => (
             <li key={item.title}>

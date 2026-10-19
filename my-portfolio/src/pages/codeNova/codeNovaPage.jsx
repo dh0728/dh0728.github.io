@@ -7,7 +7,7 @@ import CodeReview from "../../components/codeNova/CodeReview";
 import CodeNovaReview from "../../components/codeNova/CodeNovaReview";
 
 const sections = [
-  { id: "header", label: "HEADER", title: "CodeNova", subtitle: "코딩 실력을 키우는 실전 타자 플랫폼", content: <CodeNovaHeader /> },
+  { id: "header", label: "HEADER", title: "CodeNova", subtitle: "코딩 실력을 키우는 실전 타자 플랫폼", className: "project-header-section", content: <CodeNovaHeader /> },
   { id: "overview", label: "OVERVIEW", title: "OVERVIEW", content: <CodeNovaOverView /> },
   { id: "singleMode", label: "SINGLE MODE", title: "SINGLE MODE", content: <SingleMode /> },
   { id: "codeReview", label: "CODE REVIEW", title: "CODE REVIEW", content: <CodeReview /> },
