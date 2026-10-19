@@ -1,43 +1,55 @@
-import { ArrowRight, ArrowDown, Lightbulb } from "lucide-react";
+import { Fragment } from "react";
+import { ArrowRight, ClipboardCheck, Lightbulb } from "lucide-react";
 
-export const FlowArrow = ({ down = false }) => down
-  ? <ArrowDown className="review-flow-arrow review-flow-arrow--down" size={20} aria-hidden="true" />
-  : <ArrowRight className="review-flow-arrow" size={20} aria-hidden="true" />;
-
-export const FlowNode = ({ icon: Icon, title, detail, muted = false }) => (
-  <div className={`review-flow-node ${muted ? "review-flow-node--muted" : ""}`}>
-    {Icon && <Icon size={23} strokeWidth={1.7} aria-hidden="true" />}
-    <strong>{title}</strong>
-    {detail && <span>{detail}</span>}
-  </div>
-);
-
-const ProjectReview = ({ title, summary, visualTitle, children, contributions, lesson, next }) => (
+const ProjectReview = ({ title, steps, nextStep, reflection, regret }) => (
   <div className="project-review">
     <div className="project-review__intro">
       <p className="project-eyebrow">PROJECT TAKEAWAY</p>
       <h3>{title}</h3>
-      <p>{summary}</p>
     </div>
     <div className="project-review__body">
       <figure className="project-review__visual">
-        <figcaption>{visualTitle}<span>핵심 흐름을 요약한 도식</span></figcaption>
-        {children}
-      </figure>
-      <div className="project-review__notes">
-        <div>
-          <h4 className="project-review__label">내가 기여한 것</h4>
-          <ul className="project-review__contributions">
-            {contributions.map((item) => <li key={item.title}><strong>{item.title}</strong><p>{item.description}</p></li>)}
-          </ul>
+        <figcaption>경험에서 다음 개선으로<span>회고를 요약한 도식</span></figcaption>
+        <div className="review-growth">
+          <p className="review-step-label">이번 프로젝트에서 넓힌 시야</p>
+          <div className="review-growth__path">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <Fragment key={step.title}>
+                  {index > 0 && <ArrowRight className="review-flow-arrow" size={20} aria-hidden="true" />}
+                  <div className="review-flow-node">
+                    <Icon size={23} strokeWidth={1.7} aria-hidden="true" />
+                    <strong>{step.title}</strong>
+                    <span>{step.detail}</span>
+                  </div>
+                </Fragment>
+              );
+            })}
+          </div>
+          <div className="review-growth__next">
+            <ClipboardCheck size={24} aria-hidden="true" />
+            <div>
+              <p className="review-step-label">다음 프로젝트에서 보완할 점</p>
+              <strong>{nextStep.title}</strong>
+              <ul aria-label="다음 개선 키워드">{nextStep.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+            </div>
+          </div>
         </div>
-        <div className="project-review__lesson">
-          <h4><Lightbulb size={18} aria-hidden="true" /> 배운 점</h4>
-          <p>{lesson}</p>
+      </figure>
+      <div className="project-review__reflections">
+        <div className="project-review__reflection">
+          <h4><Lightbulb size={20} aria-hidden="true" />회고</h4>
+          <h5>{reflection.title}</h5>
+          <p>{reflection.description}</p>
+        </div>
+        <div className="project-review__reflection">
+          <h4><ClipboardCheck size={20} aria-hidden="true" />아쉬운 점</h4>
+          <h5>{regret.title}</h5>
+          <p>{regret.description}</p>
         </div>
       </div>
     </div>
-    <p className="project-review__next"><span>다음 개선</span>{next}</p>
   </div>
 );
 

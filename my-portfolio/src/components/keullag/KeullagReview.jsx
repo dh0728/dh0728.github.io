@@ -1,35 +1,24 @@
-import { Database, Layers, Send } from "lucide-react";
-import ProjectReview, { FlowArrow, FlowNode } from "../ProjectReview";
+import { Code2, Layers, LayoutDashboard } from "lucide-react";
+import ProjectReview from "../ProjectReview";
 
 const KeullagReview = () => (
   <ProjectReview
-    title="반복 조회는 캐시로, 필요한 데이터는 함께"
-    summary="클라이밍장 목록에 Redis 캐시를 적용하고, 연관 데이터는 Fetch Join으로 함께 조회했습니다."
-    visualTitle="클라이밍장 목록 조회 흐름"
-    contributions={[
-      { title: "Redis 캐시 적용", description: "캐시가 있는 목록 요청은 DB 조회 없이 응답하도록 구성했습니다." },
-      { title: "연관 데이터 조회 개선", description: "N+1 문제에 Fetch Join을 적용해 반복 쿼리를 줄였습니다." },
+    title="백엔드 구현에서 설계의 기본기로"
+    steps={[
+      { icon: Code2, title: "백엔드 구현", detail: "Spring·JPA" },
+      { icon: Layers, title: "역할 분리", detail: "계층별 책임" },
+      { icon: LayoutDashboard, title: "설계 관점", detail: "구조·성능 고려" },
     ]}
-    lesson="쿼리 수를 줄이는 것과 함께, 여러 관계를 조인할 때 늘어나는 데이터 양도 살펴야 합니다."
-    next="조회 목적별 쿼리 분리와 DTO projection을 검토하고 싶습니다."
-  >
-    <div className="review-cache">
-      <div className="review-cache__before">
-        <span className="review-step-label">BEFORE</span>
-        <div><span>목록 요청</span><FlowArrow /><span>매번 DB 조회</span></div>
-      </div>
-      <span className="review-step-label">AFTER</span>
-      <div className="review-cache__entry">
-        <FlowNode icon={Send} title="목록 요청" />
-        <FlowArrow />
-        <FlowNode icon={Layers} title="Redis" detail="캐시 확인" />
-      </div>
-      <div className="review-cache__branches">
-        <div><span className="review-branch-label">캐시 있음</span><FlowArrow down /><FlowNode title="바로 응답" detail="DB 조회 생략" /></div>
-        <div><span className="review-branch-label">캐시 없음</span><FlowArrow down /><FlowNode icon={Database} title="DB 조회" muted /></div>
-      </div>
-    </div>
-  </ProjectReview>
+    nextStep={{ title: "조회 목적과 재사용성을 고려해 구조 다듬기", tags: ["조회 구조", "코드 가독성"] }}
+    reflection={{
+      title: "백엔드의 기본기를 실제 서비스로",
+      description: "Spring과 JPA로 API를 구현하고 계층별 책임을 나누며, 기능 구현뿐 아니라 데이터 구조와 조회 성능도 함께 고려하는 법을 배웠습니다.",
+    }}
+    regret={{
+      title: "조회와 코드 구조를 더 단순하게",
+      description: "조회 구조와 코드 재사용성을 더 세심하게 설계하지 못한 점이 아쉽습니다. 다음에는 조회 목적별로 쿼리를 나누고 공통 로직을 정리해 성능과 가독성을 함께 개선하고 싶습니다.",
+    }}
+  />
 );
 
 export default KeullagReview;
