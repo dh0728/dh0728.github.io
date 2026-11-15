@@ -1,77 +1,21 @@
-import acrhImg from "../../assets/images/keullag_aki.png";
+import { MapPin, Ruler, ScanLine, CalendarDays } from "lucide-react";
+import archImg from "../../assets/images/keullag_aki.png";
+import ProjectOverview from "../ProjectOverview";
+import ProjectFigure from "../ProjectFigure";
 
-const KeullagOverView = () => {
-
-        return(
-            <div className="grid w-full min-w-0 gap-8 break-words lg:grid-cols-2 items-start">
-
-                {/* 프로젝트 정보 */}
-                <div className="w-full flex flex-col gap-8 text-sm md:text-base leading-relaxed min-w-0">
-
-                    <div className="w-full flex flex-col gap-2 p-1 min-w-0">
-                        <div>
-                            클라이밍을 취미로 즐기는 사람들을 위해, 더 편리하고 즐겁게 클라이밍을 기록하고 공유할 수 있는 서비스를 기획하였습니다.
-                            최근에는 자신의 클라이밍 영상을 촬영하여 SNS에 업로드하고 기록하는 문화가 활성화되고 있는데요. 저희는 그에 맞춰
-                            사용자의 실제 클라이밍 경험을 방해하지 않으면서도 더욱 스마트하게 기록하고 공유할 수 있는 환경을 제공하고자 하였습니다.
-                        </div>
-
-                    {/* 구현 기능 */}
-                    <div className="flex flex-col w-full gap-2 mt-4">
-                        <ul className="list-none ml-5 space-y-1 leading-relaxed">
-                            <li>
-                                <strong>🔍 주변 클라이밍장 조회</strong>
-                                <ul className="list-none ml-4 space-y-1">
-                                  <li>- 현재 외치 기준으로 가까운 클라이밍장 별 정렬 조회</li>
-                                  <li>- 5개씩 페이지네이션해 랜더링 최적화</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>📏 이미지를 통한 윙스팬 측정 </strong>
-                                <ul className="list-none ml-4 space-y-1">
-                                  <li>- openCV + MediaPipe를 통한 윙스팬 측정</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>🎬 모션인식 + 기록 자동화</strong>
-                                <ul className="list-none ml-4 space-y-1">
-                                  <li>- Google ML Kit 기반 포즈 감지 기능</li>
-                                  <li>- 모션 인식 + 음성 안내에 따라 터치 없이 영상 촬영</li>
-                                  <li>- 오른손 들기(촬영시작), 박수(색상선택), 두손들기(촬영시작), O or X(성공여부)</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>✏️ 캘린더 + 통계를 통한 기록 관리</strong>
-                                <ul className="list-none ml-4 space-y-1">
-                                  <li>- 게이미피케이션 요소를 도입하여 성취감 극대화</li>
-                                  <li>- 클라이밍장 반경 500미터 이내일 경우 클라이밍장 해금</li>
-                                  <li>- 클라이밍장 별 클리어 횟수를 통한 메달 획득</li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                    </div>
-                </div>
-
-                <div className="w-full flex items-center min-w-0">
-                    <img src={acrhImg} alt="아키텍처"
-                        className="w-full"
-                    />
-
-                    {/* 화면 이미지들 */}
-                    {/* <div className="w-[50%] flex flex-col p-2 gap-2">
-                        <img src={multImg} alt="아키텍처"
-                        className="w-full"
-                        />
-                    <img src={meteoImg} alt="아키텍처"
-                        className="w-full"
-                    />
-                    </div> */}
-                </div>
-
-            </div>
-        )
-}
+const KeullagOverView = () => (
+  <ProjectOverview
+    title="운동에 집중하고, 기록은 편리하게"
+    description="클라이밍 영상을 촬영해 SNS에 공유하는 사용자들이 운동 흐름을 방해받지 않고 기록을 남기고 공유할 수 있도록 기획했습니다."
+    features={[
+      { title: "주변 클라이밍장 탐색", icon: MapPin, items: ["현재 위치에서 가까운 순으로 정렬", "5개씩 페이지네이션해 화면 렌더링 최적화"] },
+      { title: "이미지로 윙스팬 측정", icon: Ruler, items: ["OpenCV + MediaPipe를 활용한 윙스팬 측정"] },
+      { title: "모션 인식과 기록 자동화", icon: ScanLine, items: ["Google ML Kit 포즈 감지·음성 안내로 터치 없이 영상 촬영", "오른손 들기·두 손 들기: 촬영 시작 / 박수: 색상 선택", "O·X 동작으로 성공 여부 입력"] },
+      { title: "캘린더·통계로 기록 관리", icon: CalendarDays, items: ["클라이밍장 반경 500m 이내 접근 시 해당 장소 해금", "클라이밍장별 클리어 횟수에 따른 메달 획득으로 성취감 제공"] },
+    ]}
+  >
+    <ProjectFigure src={archImg} alt="끌락끌락 앱과 백엔드, 모션 인식 시스템의 아키텍처" caption="시스템 구조 · 앱, 백엔드, 모션 인식 기능 연결" />
+  </ProjectOverview>
+);
 
 export default KeullagOverView;

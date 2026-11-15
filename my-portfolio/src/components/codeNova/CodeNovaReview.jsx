@@ -1,103 +1,24 @@
+import { MessageSquare, RefreshCw, Rocket } from "lucide-react";
+import ProjectReview from "../ProjectReview";
 
-const CodeNovaReview = () => {
-    return(
-                <div className="grid w-full min-w-0 gap-8 break-words md:grid-cols-2 items-start">
-
-                    {/* 프로젝트 정보 */}
-                    <div className="w-full flex flex-col text-sm md:text-base leading-relaxed min-w-0">
-
-                        <div className="w-full h-auto flex flex-col gap-2 min-w-0">
-
-                            <div className="text-sm md:text-base lg:text-lg font-bold">
-                                회고
-                            </div>
-
-                            <div className="flex flex-col w-full gap-2 mt-2">
-                                이번 프로젝트는 기획부터 테스트, 배포, 피드백 반영까지 전 과정을 팀원들과 긴밀하게 협업하며 진행한 애자일 프로젝트였습니다.
-                                <br/>특히 MVP 우선 배포 전략을 두고 발생한 의견 충돌을 조율하며, 사용자의 피드백을 빠르게 수용하고 서비스에 반영하는 반복적 개선의 중요성을 실감할 수 있었습니다.
-                                <br/>저는 프론트엔드를 맡아 UI/UX 구현과 상태 관리를 담당하며, 기획과 개발, 그리고 사용자 경험 사이에서 균형을 맞추는 협업 감각을 키울 수 있었습니다.
-                                팀원들과 매일 진행 상황을 공유하며 각자의 역할에 유연하게 대응하고, 일부 백엔드 기능까지 함께 분담해 개발 효율을 높일 수 있었습니다.
-                                <br/>이 경험을 통해 역할 분담과 커뮤니케이션이 명확한 협업이야말로 서비스 완성도를 높이는 핵심이라는 것을 깊이 체감했습니다.
-                            </div>
-                            <div className="text-sm md:text-base lg:text-lg font-bold">
-                                아쉬운 점
-                            </div>
-
-                            <div className="flex flex-col w-full gap-2 mt-2">
-                                기본적인 메크로 감지는 구현했지만, 사람의 입력 패턴을 정교하게 모방한 자동 입력까지는 완전히 구분하지 못한 한계가 있었습니다.
-                                향후에는 KeyLogs 데이터 분석을 기반으로 한 탐지 방식이나 보다 정교한 판별 로직 적용을 검토해보고 싶습니다.
-                                <br/>
-                                또한 Refresh Token 없이 JWT 기반 인증 방식을 사용하다 보니 토큰 만료 전까지 강제 로그아웃이 불가능한 한계가 있었으며,
-                                다음에는 서버 측에서 토큰 상태를 제어할 수 있는 구조를 고려하고자 합니다.
-                                <br/>
-                                마지막으로 초기 화면 설계 단계에서 컴포넌트를 더 세분화했더라면 재사용성과 유지보수 측면에서 더 효율적인 구조를 만들 수 있었을 것이라 생각합니다.
-                            </div>
-                        </div>
-
-                    </div>
-
-
-
-                    <div className="w-full flex flex-col items-start gap-8 text-sm md:text-base leading-relaxed min-w-0 border-t border-gray-200 pt-8 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-                        <div className="w-full h-auto flex flex-col gap-2 min-w-0">
-                            <div className="text-sm md:text-base lg:text-lg font-bold">
-                                트러블 슈팅
-                            </div>
-
-                            <div className="flex flex-col w-full gap-2 mt-2 min-w-0">
-                                <div className="font-semibold">
-                                    메크로 및 악성 유저
-                                </div>
-
-                                <div className="font-semibold">
-                                    문제 상황
-                                </div>
-                                <ul className="ml-5 space-y-1 text-sm leading-relaxed">
-                                    <li>- 초기에는 프론트에서 타수를 측정 및 서버로 전달</li>
-                                    <li>- 싱글 게임시 타수를 api의 탈취해 조작해 기록을 조작</li>
-                                    <li>- 또한 메크로를 통해 타수를 조작시도</li>
-                                </ul>
-
-                                <div className="font-semibold">
-                                    해결 방법
-                                </div>
-                                <ul className="ml-5 space-y-1 leading-relaxed">
-                                    <li>- 서버로 KeyLogs를 전달해 서버에서 측정하고 전달시에도 AES암호화 알고리즘을 통해 데이터 암호화</li>
-                                    <li>- 서버에서 KeyLogs를 통해 시뮬레이션을 통해 올바르게 입력했는지 검사</li>
-                                    <li>- KeyLogs를 통해 표준편차, 입력간 시간간격, 백스페이스 사용 여부, 특수키 사용여부 확인</li>
-                                    <li>- 특정 타속이상인 경우, 메크로로 검증 로직을 통해 메크로 여부를 검증 </li>
-                                    <li>- 메크로 검증은 입력 코드의 길이별로 조건을 조금씩 다르게 설정하여 검증 </li>
-                                </ul>
-                            </div>
-
-                            {/* <div className="flex flex-col w-full gap-2 mt-2 min-w-0">
-                                <div className="font-semibold">
-                                    토큰 만료시 에러
-                                </div>
-
-                                <div className="font-semibold text-sm">
-                                    문제 상황
-                                </div>
-                                <ul className="ml-5 space-y-1 text-sm leading-relaxed">
-                                    <li>- 로그아웃을 하지 않고 서비스를 계속 이용할 경우. 갑자기 에러가 발생</li>
-                                    <li>- accessToken이 만료될 경우 refresh 토큰을 사용하지 않아 다시 로그인 되지 않아 발생</li>
-                                    <li>- axios 요청시 JWT토큰 filter에서 검증시 401로 던져지게 할려고 했으나 게스트 로그인 토큰 디코딩 에러 발생</li>
-                                </ul>
-
-                                <div className="font-semibold text-sm">
-                                    해결 방법
-                                </div>
-                                <ul className="ml-5 space-y-1 text-sm leading-relaxed">
-                                    <li>- 로그인시 토큰의 만료 시간을 추출해 스토리지에 함께 저장</li>
-                                    <li>- 토큰 만료시 로그인 페이지로 이동</li>
-                                </ul>
-                            </div> */}
-                        </div>
-
-                    </div>
-
-                </div>
-            )
-}
+const CodeNovaReview = () => (
+  <ProjectReview
+    title="협업과 피드백으로 다듬은 서비스"
+    steps={[
+      { icon: Rocket, title: "MVP 배포", detail: "팀과 범위 조율" },
+      { icon: MessageSquare, title: "사용자 피드백", detail: "실제 불편 확인" },
+      { icon: RefreshCw, title: "반복 개선", detail: "UI·UX에 반영" },
+    ]}
+    nextStep={{ title: "화면을 역할별 컴포넌트로 나누기", tags: ["재사용성", "유지보수"] }}
+    reflection={{
+      title: "함께 조율하며 반복 개선",
+      description: "MVP 배포 범위를 팀과 조율하고 색약 사용자의 피드백을 화면에 반영하며, 협업과 반복 개선의 중요성을 배웠습니다.",
+    }}
+    regret={{
+      title: "재사용을 고려한 화면 설계",
+      description: "초기 화면 설계에서 컴포넌트를 충분히 세분화하지 못했습니다. 다음에는 역할별로 분리하고 공통 UI를 재사용해 유지보수성을 높이고 싶습니다.",
+    }}
+  />
+);
 
 export default CodeNovaReview;

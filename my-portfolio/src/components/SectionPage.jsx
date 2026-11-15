@@ -59,17 +59,17 @@ const SectionPage = ({ sections, Header: headerComponent, implementSections = []
         ))}
       </nav>
       <main>
-        {sections.map(({ id, label, title, subtitle, content, background = "" }) => (
+        {sections.map(({ id, label, title, subtitle, content, background = "", className = "" }) => (
           <section
             key={id}
             id={id}
             aria-label={label}
             ref={(element) => { sectionRefs.current[id] = element; }}
-            className={`relative flex min-h-[100svh] w-full flex-col justify-center px-4 pb-12 pt-28 sm:px-8 lg:px-16 lg:pb-16 lg:pt-32 ${background}`}
+            className={`relative flex min-h-[100svh] w-full flex-col justify-center px-4 pb-12 pt-28 sm:px-8 lg:px-16 lg:pb-16 lg:pt-32 ${background} ${className}`}
           >
             <div className="relative mx-auto w-full min-w-0 max-w-7xl">
               {title && (
-                <div className="relative mb-8 min-w-0 md:mb-12">
+                <div className="section-heading relative mb-8 min-w-0 md:mb-12">
                   <span aria-hidden="true" className="pointer-events-none absolute -top-8 left-0 max-w-full overflow-hidden whitespace-nowrap text-5xl font-extrabold text-black/5 md:text-7xl">
                     {title}
                   </span>

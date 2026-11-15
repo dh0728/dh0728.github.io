@@ -1,52 +1,20 @@
-import ChatingDescImg from "../../assets/images/chating_desc.png"
+import ChatingDescImg from "../../assets/images/chating_desc.png";
+import ProjectFeature from "../ProjectFeature";
+import ProjectFigure from "../ProjectFigure";
 
-const Chating = () => {
-    return(
-                <div className="grid w-full min-w-0 gap-8 break-words lg:grid-cols-2 items-start">
+const Chating = () => (
+  <ProjectFeature
+    title="펀딩 상품별 실시간 대화"
+    description="Kafka와 STOMP로 오픈채팅을 구현하고 메시지 수신과 저장을 분리했습니다."
+    items={[
+      { title: "상품별 채팅방", description: "펀딩 상품 단위로 Kafka 토픽을 나누어 메시지를 처리합니다." },
+      { title: "버퍼에 모아 일괄 저장", description: "수신 메시지를 메모리에 모은 뒤 MongoDB에 저장합니다." },
+      { title: "저장 시점 관리", description: "버퍼 50개 누적 또는 최초 적재 후 50분 경과 시 저장합니다." },
+    ]}
+    tags={["Kafka", "STOMP", "MongoDB"]}
+  >
+    <ProjectFigure src={ChatingDescImg} alt="Ecofundia Kafka와 STOMP 기반 채팅 메시지 흐름도" caption="오픈채팅 · 메시지 전송, 수신, 저장 흐름" />
+  </ProjectFeature>
+);
 
-                    {/* 프로젝트 정보 */}
-                    <div className="w-full flex flex-col text-sm md:text-base leading-relaxed min-w-0">
-
-                        <div className="w-full h-auto flex flex-col gap-2 min-w-0">
-                            <div className="text-sm md:text-base lg:text-lg font-bold">
-                                오픈 채팅 시스템
-                            </div>
-
-                            <div className="flex flex-col w-full gap-2 mt-2">
-                                <ul className="ml-5 space-y-1 text-sm leading-relaxed">
-                                    <li>- Kafka와 STOMP를 활용하여 펀딩 상품별 오픈 채팅방 기능 구현</li>
-                                    <li>- 채팅 메시지를 메모리 버퍼에 저장 후 일정 조건 시 MongoDB에 일괄 저장</li>
-                                    <li>- 메시지 유실 방지 및 저장 효율성을 고려한 버퍼링 + 스케줄러 구조 설계</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="w-full h-auto flex flex-col gap-2 min-w-0">
-                            <div className="text-sm md:text-base lg:text-lg font-bold">
-                                설명
-                            </div>
-
-                            <div className="flex flex-col w-full gap-2 mt-2 min-w-0">
-                                <ul className="ml-5 space-y-1 leading-relaxed">
-                                    <li>- 실시간 채팅 메시지는 Kafka를 통해 비동기적으로 처리하여,메시지 수신 로직과 후단 처리 로직을 분리하였습니다.</li>
-                                    <li>- Kafka 토픽을 펀딩 상품 단위로 분리하여 채팅방 간 메시지 분리를 명확히 하고, 병렬 처리 확장을 고려한 구조로 구성하였습니다.</li>
-                                    <li>- 채팅 메시지는 MongoDB에 즉시 저장하지 않고, 메모리 버퍼에 임시 적재한 뒤 일괄 저장하는 방식을 적용했습니다.</li>
-                                    <li>- 50개 이상의 메시지가 버퍼에 누적되거나, 최초 메시지 저장 이후 50분이 경과하면 스케줄러가 MongoDB에 일괄 저장을 수행합니다.</li>
-                                    <li>- 이러한 구조를 통해 실시간 메시지 수신과 저장 로직을 분리할 수 있었고, 트래픽 증가 시 확장 가능한 구조를 경험할 수 있었습니다.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="w-full flex items-center justify-center min-w-0">
-                        <img src={ChatingDescImg} alt="채팅설명"
-                            className="w-[80%]"
-                        />
-
-                    </div>
-
-                </div>
-            )
-}
-
-export default Chating
+export default Chating;

@@ -1,57 +1,24 @@
 import KeullagRecordImg from "../../assets/images/keullagRecord.jpg";
 import KeullagPlaceImg from "../../assets/images/keullagPlace.jpg";
+import ProjectFeature from "../ProjectFeature";
+import ProjectFigure from "../ProjectFigure";
 
-const Api = () => {
-    return(
-                <div className="grid w-full min-w-0 gap-8 break-words lg:grid-cols-2 items-start">
-
-                    {/* 프로젝트 정보 */}
-                    <div className="w-full flex flex-col gap-8 text-sm md:text-base leading-relaxed min-w-0">
-
-                        <div className="w-full h-auto flex flex-col gap-2 min-w-0">
-                            <div className="text-sm md:text-base lg:text-lg font-bold">
-                                클라이밍장 조회, 기록 통계, 기록 저장 API 구현
-                            </div>
-
-                            <div className="flex flex-col w-full gap-2 mt-2">
-                                <ul className="ml-5 space-y-1 text-sm leading-relaxed">
-                                    <li>- 클라이밍장 조회 API 구현</li>
-                                    <li>- 클라이밍장 상세 정보 조회 API 구현</li>
-                                    <li>- 클라이밍 기록 통계 API 구현(년, 월, 주)</li>
-                                    <li>- 클라이밍 기록 저장 및 내 기록 조회 API 구현</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="w-full h-auto flex flex-col gap-2 min-w-0">
-                            <div className="text-xl font-bold">
-                                설명
-                            </div>
-
-                            <div className="flex flex-col w-full gap-2 mt-2 min-w-0">
-                                <ul className="ml-5 space-y-1 text-sm leading-relaxed">
-                                    <li>- 클라이밍장 조회 시 현재 위치에서 가까운 순으로 조회되도록 구현하였습니다.</li>
-                                    <li>- Redis 캐싱을 통해 조회 성능을 최적화 하였습니다.</li>
-                                    <li>- 클라이밍 기록은 날짜 단위로 그룹화되어 주간/월간/연간 단위의 통계를 제공합니다.</li>
-                                    <li>- 기록 저장 시 스냅샷 이미지를 활용해 화면 렌더링 성능을 최적화하고, S3에 저장된 영상 URL과 연동됩니다.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="w-full flex items-center justify-center gap-4 min-w-0">
-                        <img src={KeullagPlaceImg} alt="클라이밍장"
-                            className="h-auto max-h-[36rem] w-[40%] rounded-2xl object-contain"
-                        />
-                        <img src={KeullagRecordImg} alt="기록"
-                            className="h-auto max-h-[36rem] w-[40%] rounded-2xl object-contain"
-                        />
-
-
-                    </div>
-
-                </div>
-            )
-}
+const Api = () => (
+  <ProjectFeature
+    title="장소 탐색부터 기록 관리까지"
+    description="클라이밍장 조회와 개인 기록을 연결하는 백엔드 API를 개발했습니다."
+    items={[
+      { title: "가까운 클라이밍장 찾기", description: "현재 위치 기준으로 정렬하고 목록 조회에 Redis 캐시를 적용했습니다." },
+      { title: "나의 기록과 통계", description: "기록 저장·조회와 주간·월간·연간 통계 API를 구현했습니다." },
+      { title: "영상과 기록 연결", description: "스냅샷 이미지와 S3 영상 URL을 기록에 연결했습니다." },
+    ]}
+    tags={["Spring", "JPA", "Redis", "S3"]}
+  >
+    <div className="project-phone-gallery">
+      <ProjectFigure src={KeullagPlaceImg} alt="끌락끌락 클라이밍장 상세 정보 화면" caption="클라이밍장 상세 정보" portrait />
+      <ProjectFigure src={KeullagRecordImg} alt="끌락끌락 개인 기록 화면" caption="개인 기록·통계" portrait />
+    </div>
+  </ProjectFeature>
+);
 
 export default Api;

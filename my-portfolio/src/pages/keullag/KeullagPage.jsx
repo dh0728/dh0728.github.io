@@ -6,7 +6,7 @@ import Api from "../../components/keullag/Api";
 import KeullagReview from "../../components/keullag/KeullagReview";
 
 const sections = [
-  { id: "header", label: "HEADER", title: "끌락끌락", subtitle: "클라이밍 기록 관리 앱", content: <KeullagHeader /> },
+  { id: "header", label: "HEADER", title: "끌락끌락", subtitle: "클라이밍 기록 관리 앱", className: "project-header-section", content: <KeullagHeader /> },
   { id: "overview", label: "OVERVIEW", title: "OVERVIEW", content: <KeullagOverView /> },
   { id: "api", label: "API Development", title: "API Development", content: <Api /> },
   { id: "review", label: "REVIEW", title: "REVIEW", content: <KeullagReview /> },
